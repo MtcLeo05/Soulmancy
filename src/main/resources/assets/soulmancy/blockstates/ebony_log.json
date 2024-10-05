@@ -1,0 +1,40 @@
+{
+  "variants": {
+    "axis=x,variant=1": {
+      "model": "soulmancy:block/logs/ebony_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,variant=1": {
+      "model": "soulmancy:block/logs/ebony_log"
+    },
+    "axis=z,variant=1": {
+      "model": "soulmancy:block/logs/ebony_log",
+      "x": 90
+    },
+    "axis=x,variant=2": {
+      "model": "soulmancy:block/logs/ebony_log2",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,variant=2": {
+      "model": "soulmancy:block/logs/ebony_log2"
+    },
+    "axis=z,variant=2": {
+      "model": "soulmancy:block/logs/ebony_log2",
+      "x": 90
+    },
+    "axis=x,variant=3": {
+      "model": "soulmancy:block/logs/ebony_log3",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,variant=3": {
+      "model": "soulmancy:block/logs/ebony_log3"
+    },
+    "axis=z,variant=3": {
+      "model": "soulmancy:block/logs/ebony_log3",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "soulmancy:block/logs/ebony_log_horizontal",
+	"textures": {
+		"2": "soulmancy:block/light_variants/log_lights3"
+	}
+}

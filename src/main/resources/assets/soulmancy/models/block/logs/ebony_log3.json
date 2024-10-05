@@ -1,0 +1,8 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "soulmancy:block/logs/ebony_log",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"2": "soulmancy:block/light_variants/log_lights3"
+	}
+}

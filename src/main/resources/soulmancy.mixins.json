@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "com.leo.soulmancy.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "refmap": "soulmancy.refmap.json",
+    "mixins": [
+        "AnvilBlockMixin"
+    ],
+    "client": [
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
