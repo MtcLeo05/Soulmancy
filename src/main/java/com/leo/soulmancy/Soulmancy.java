@@ -1,5 +1,6 @@
 package com.leo.soulmancy;
 
+import com.leo.soulmancy.config.ServerConfig;
 import com.leo.soulmancy.init.*;
 import com.leo.soulmancy.worldgen.biome.ModTerrablender;
 import com.mojang.logging.LogUtils;
@@ -35,7 +36,6 @@ public class Soulmancy {
         ModRecipes.RECIPE_TYPES.register(modEventBus);
         ModRecipes.RECIPE_SERIALIZERS.register(modEventBus);
 
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SPEC);
     }
 }

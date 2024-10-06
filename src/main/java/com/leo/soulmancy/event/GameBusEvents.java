@@ -30,7 +30,7 @@ public class GameBusEvents {
         BlockPos pos = player.getOnPos();
         Level level = player.level();
         BlockPos cPos = level.getChunkAt(pos).getPos().getMiddleBlockPosition(pos.getY());
-        SoulData data = SoulData.getOrCreateData(pos, level, Utils.isPosInsideForest(cPos, level));
+        SoulData data = SoulData.getOrCreateData(pos, level, level.getBiome(cPos).getKey());
         PacketDistributor.sendToPlayer((ServerPlayer) player, data);
     }
 
