@@ -32,9 +32,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         registerVanillaRecipes(recipeOutput);
 
         AnvilCrushRecipe.Builder.builder()
-            .withInput(new ItemStack(Blocks.TINTED_GLASS,4))
+            .withInput(new ItemStack(Blocks.TINTED_GLASS,2))
             .withOutput(new ItemStack(ModItems.ARTIFICIAL_ONYX.get(),1))
-            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID,"artificial_onyx")
+            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID,"artificial_onyx_from_tinted_glass")
         );
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.OCCULT_COMPASS.get(), 1)
@@ -46,7 +46,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy("hasItem", has(ModItemTagsProvider.FAUX_ONYX))
             .save(recipeOutput, "occult_compass");
 
-
         SoulTransformRecipe.Builder.builder()
             .withInput(new ItemStack(ModItems.ARTIFICIAL_ONYX.get(),2))
             .withOutput(new ItemStack(ModItems.ONYX.get(),1))
@@ -56,7 +55,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             recipeOutput,
             ResourceLocation.fromNamespaceAndPath(
                 Soulmancy.MODID,
-                "onyx"
+                "onyx_from_artificial_onyx"
             )
         );
 
@@ -83,6 +82,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ResourceLocation.fromNamespaceAndPath(
                     Soulmancy.MODID,
                     "sight_lens"
+                )
+            );
+
+        SoulTransformRecipe.Builder.builder()
+            .withInput(new ItemStack(Items.AMETHYST_SHARD,4))
+            .withOutput(new ItemStack(ModItems.ARTIFICIAL_ONYX.get(),1))
+            .withSoul(15)
+            .withDuration(20)
+            .save(
+                recipeOutput,
+                ResourceLocation.fromNamespaceAndPath(
+                    Soulmancy.MODID,
+                    "artificial_onyx_from_amethyst"
                 )
             );
 
