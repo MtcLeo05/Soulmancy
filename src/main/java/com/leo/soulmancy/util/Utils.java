@@ -3,7 +3,12 @@ package com.leo.soulmancy.util;
 import com.leo.soulmancy.data.SoulData;
 import com.leo.soulmancy.worldgen.biome.ModBiomes;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.chunk.ChunkAccess;
 
@@ -61,5 +66,16 @@ public class Utils {
         SoulData data = chunk.getData(SOUL_DATA_ATTACHMENT);
         data = new SoulData(data.soulValue(), data.maxSoulValue() + vessel);
         chunk.setData(SOUL_DATA_ATTACHMENT, data);
+    }
+
+    public static Holder<Enchantment> getEnchantmentHolder(RegistryAccess access, ResourceKey<Enchantment> enchantment) {
+        var enchantmentRegistry = access.registry(Registries.ENCHANTMENT);
+        if (enchantmentRegistry.isPresent()) {
+            var ench = enchantmentRegistry.get().getHolder(enchantment);
+            if (ench.isPresent()) {
+                return ench.get();
+            }
+        }
+        return null;
     }
 }

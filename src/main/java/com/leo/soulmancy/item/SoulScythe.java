@@ -20,7 +20,6 @@ public class SoulScythe extends SwordItem {
         super(ModTiers.SCYTHE_TIER, properties);
     }
 
-
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity entity, LivingEntity attacker) {
         if(!entity.isDeadOrDying()) return super.hurtEnemy(stack, entity, attacker);

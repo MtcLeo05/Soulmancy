@@ -38,6 +38,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.REVEALING_EYE.get(),
                 ModItems.SIGHT_LENS.get()
             );
+
+        this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
     }
 
     private void addVanillaTags(){
