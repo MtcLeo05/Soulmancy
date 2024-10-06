@@ -1,10 +1,12 @@
 package com.leo.soulmancy.init;
 
 import com.leo.soulmancy.Soulmancy;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -22,11 +24,9 @@ public class ModCreativeTabs {
             .icon(ModItems.ONYX.get()::getDefaultInstance)
             .displayItems((idp, output) -> {
                 Stream<Item> items = ModItems.ITEMS.getEntries().stream().map(DeferredHolder::get);
-
                 items.forEach(output::accept);
-
+                
                 Stream<Block> blocks = ModBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get);
-
                 blocks.forEach(output::accept);
             })
             .build()

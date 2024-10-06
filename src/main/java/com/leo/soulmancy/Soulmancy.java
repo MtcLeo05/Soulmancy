@@ -1,6 +1,7 @@
 package com.leo.soulmancy;
 
 import com.leo.soulmancy.config.ServerConfig;
+import com.leo.soulmancy.datagen.ModEnchantments;
 import com.leo.soulmancy.init.*;
 import com.leo.soulmancy.worldgen.biome.ModTerrablender;
 import com.mojang.logging.LogUtils;

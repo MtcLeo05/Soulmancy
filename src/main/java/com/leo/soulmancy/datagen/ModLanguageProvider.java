@@ -44,7 +44,6 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(ModBlocks.SOUL_STONE.get(), "Soul Stone");
         this.add(ModBlocks.CONDENSED_SOUL.get(), "Condensed Soul");
 
-
         this.add(ModItems.ONYX.get(), "Onyx");
         this.add(ModItems.ARTIFICIAL_ONYX.get(), "Artificial Onyx");
         this.add(ModItems.OCCULT_COMPASS.get(), "Occult Compass");
@@ -52,10 +51,9 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(ModItems.SIGHT_LENS.get(), "Lens Of Sight");
         this.add(ModItems.SOUL_CAPSULE.get(), "Soul Capsule");
         this.add(ModItems.CAPSULE_STACK.get(), "Soul Capsule Stack");
-
+        this.add(ModItems.SOUL_SCYTHE.get(), "Soul Reaping Scythe");
 
         this.add(Soulmancy.MODID + ".item.noBiomeFound", "Nothing important found...");
-
 
         this.add(Soulmancy.MODID + ".jei.anvilCrush", "Anvil Crushing");
         this.add(Soulmancy.MODID + ".jei.soulTransform", "Soul Transformation");
@@ -67,7 +65,9 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(Soulmancy.MODID + ".jei.produceSoul", "Soul Produced: %d");
         this.add(Soulmancy.MODID + ".jei.vesselIncrease", "Vessel Increase: %d");
 
-
         this.add("curios.identifier.eye", "Eye Slot");
+
+        this.add("enchantment." + Soulmancy.MODID + ".soul_reaping", "Soul Reaping");
+        this.add("enchantment." + Soulmancy.MODID + ".soul_reaping.desc", "Converts killed entities' max HP to soul usable in recipes");
     }
 }
