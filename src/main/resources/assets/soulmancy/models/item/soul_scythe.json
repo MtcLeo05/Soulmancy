@@ -1,0 +1,18 @@
+{
+    "parent": "minecraft:item/handheld",
+    "loader": "neoforge:separate_transforms",
+    "base": {
+        "parent": "soulmancy:item/soul_scythe_model"
+    },
+    "perspectives": {
+        "gui": {
+            "parent": "soulmancy:item/soul_scythe_item"
+        },
+        "ground": {
+            "parent": "soulmancy:item/soul_scythe_item"
+        },
+        "fixed": {
+            "parent": "soulmancy:item/soul_scythe_item"
+        }
+    }
+}

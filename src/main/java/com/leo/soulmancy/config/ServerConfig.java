@@ -18,6 +18,13 @@ import java.util.List;
 public class ServerConfig {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
+    private static final ModConfigSpec.DoubleValue SOUL_FROM_KILL = BUILDER
+        .comment("A percentage of how much of the entity max health should be added as soul [10]")
+        .defineInRange("soulFromKill", 10d, 0, Double.MAX_VALUE);
+
+    private static final ModConfigSpec.DoubleValue VESSEL_FROM_KILL = BUILDER
+        .comment("A percentage of how much of the player max health should be added as vessel [2.5]")
+        .defineInRange("vesselFromKill", 2.5d, 0, Double.MAX_VALUE);
 
     private static final ModConfigSpec.ConfigValue<List<? extends String>> SOUL_BIOME_DATA = BUILDER
         .comment("A list of soul data for each biome")
@@ -27,6 +34,7 @@ public class ServerConfig {
     public static final ModConfigSpec SPEC = BUILDER.build();
 
     public static List<ConfigUtils.BiomeSoulConfig> biomeConfigs;
+    public static double soulFromKill, vesselFromKill;
 
     private static boolean validateSolConfig(final Object obj) {
         return obj instanceof String string && ConfigUtils.BiomeSoulConfig.loadFromString(string).isPresent();
@@ -34,6 +42,8 @@ public class ServerConfig {
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
+        soulFromKill = SOUL_FROM_KILL.get();
+        vesselFromKill = VESSEL_FROM_KILL.get();
 
         biomeConfigs = new ArrayList<>();
 

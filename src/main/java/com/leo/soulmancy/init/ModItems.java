@@ -1,10 +1,19 @@
 package com.leo.soulmancy.init;
 
 import com.leo.soulmancy.Soulmancy;
+import com.leo.soulmancy.item.ModTiers;
 import com.leo.soulmancy.item.OccultCompass;
 import com.leo.soulmancy.item.SoulContainer;
+import com.leo.soulmancy.item.SoulScythe;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -53,12 +62,19 @@ public class ModItems {
         )
     );
 
-
     public static final DeferredHolder<Item, Item> CAPSULE_STACK = ITEMS.register("capsule_stack",
         () -> new SoulContainer(
             new Item.Properties()
                 .stacksTo(1),
             125
+        )
+    );
+
+    public static final DeferredHolder<Item, Item> SOUL_SCYTHE = ITEMS.register("soul_scythe",
+        () -> new SoulScythe(
+            new Item.Properties()
+                .stacksTo(1)
+                .attributes(SoulScythe.createAttributes(ModTiers.SCYTHE_TIER, 1f, 0))
         )
     );
 }

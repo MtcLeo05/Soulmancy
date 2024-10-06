@@ -52,6 +52,7 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(ModItems.SIGHT_LENS.get(), "Lens Of Sight");
         this.add(ModItems.SOUL_CAPSULE.get(), "Soul Capsule");
         this.add(ModItems.CAPSULE_STACK.get(), "Soul Capsule Stack");
+        this.add(ModItems.SOUL_SCYTHE.get(), "Soul Reaping Scythe");
 
 
         this.add(Soulmancy.MODID + ".item.noBiomeFound", "Nothing important found...");
