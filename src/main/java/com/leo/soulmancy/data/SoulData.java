@@ -2,6 +2,8 @@ package com.leo.soulmancy.data;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.client.ModClientData;
+import com.leo.soulmancy.config.ServerConfig;
+import com.leo.soulmancy.util.ConfigUtils;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.netty.buffer.ByteBuf;
@@ -9,9 +11,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
@@ -38,25 +42,33 @@ public record SoulData(int soulValue, int maxSoulValue) implements CustomPacketP
         SoulData::new
     );
 
-    public static SoulData getOrCreateData(BlockPos pos, Level level, boolean isForest) {
+    public static SoulData getOrCreateData(BlockPos pos, Level level, ResourceKey<Biome> biome) {
         LevelChunk chunk = level.getChunkAt(pos);
 
         if(chunk.hasData(SOUL_DATA_ATTACHMENT)){
             return chunk.getData(SOUL_DATA_ATTACHMENT);
         }
 
-        RandomSource random = level.getRandom();
-        SoulData data;
 
-        if(isForest){
-            int soul;
-            int maxSoul = soul = random.nextIntBetweenInclusive(50, 125);
+        RandomSource random = level.getRandom();
+        SoulData data = null;
+
+        for (ConfigUtils.BiomeSoulConfig biomeConfig : ServerConfig.biomeConfigs) {
+            if(!biomeConfig.biome.equals(biome)) continue;
+
+            int soul = biomeConfig.dataForBiome.soulValue();
+            int maxSoul = biomeConfig.dataForBiome.maxSoulValue();
+
+            soul = random.nextIntBetweenInclusive(soul - ((soul * 25) / 100), soul + ((soul * 25) / 100));
+            maxSoul = random.nextIntBetweenInclusive(maxSoul - ((maxSoul * 25) / 100), maxSoul + ((maxSoul * 25) / 100));
+
+            if(soul > maxSoul) soul = maxSoul;
 
             data = new SoulData(soul, maxSoul);
-        } else {
-            data = new SoulData(0, 0);
+            break;
         }
 
+        if(data == null) data = new SoulData(0, 0);
         chunk.setData(SOUL_DATA_ATTACHMENT, data);
 
         return data;
