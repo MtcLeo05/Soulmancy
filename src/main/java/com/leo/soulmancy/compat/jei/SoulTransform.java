@@ -2,11 +2,10 @@ package com.leo.soulmancy.compat.jei;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.init.ModBlocks;
-import com.leo.soulmancy.recipe.AnvilCrushRecipe;
 import com.leo.soulmancy.recipe.manipulator.SoulTransformRecipe;
+import com.leo.soulmancy.util.Utils;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
-import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -18,9 +17,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Blocks;
-
-import static com.leo.soulmancy.client.screen.SoulManipulatorScreen.isMouseHovering;
 
 public class SoulTransform implements IRecipeCategory<SoulTransformRecipe> {
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "soul_transform");
@@ -100,7 +96,7 @@ public class SoulTransform implements IRecipeCategory<SoulTransformRecipe> {
             256
         );
 
-        if (isMouseHovering(55, 26, 32, 10, mouseX, mouseY)) {
+        if (Utils.isMouseHovering(55, 26, 32, 10, mouseX, mouseY)) {
             guiGraphics.renderTooltip(
                 Minecraft.getInstance().font,
                 Component.translatable(Soulmancy.MODID + ".jei.duration", recipe.getDuration()),
@@ -109,7 +105,7 @@ public class SoulTransform implements IRecipeCategory<SoulTransformRecipe> {
             );
         }
 
-        if (isMouseHovering(126, 7, 9, 43, mouseX, mouseY)) {
+        if (Utils.isMouseHovering(126, 7, 9, 43, mouseX, mouseY)) {
             guiGraphics.renderTooltip(
                 Minecraft.getInstance().font,
                 Component.translatable(Soulmancy.MODID + ".jei.consumeSoul", recipe.getSoul()),

@@ -39,7 +39,6 @@ public class SoulManipulatorBlock extends BaseEntityBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-
         if (player instanceof ServerPlayer sPlayer) {
             sPlayer.openMenu(state.getMenuProvider(level, pos), p -> p.writeBlockPos(pos));
         }

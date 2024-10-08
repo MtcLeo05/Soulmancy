@@ -31,10 +31,20 @@ public class ServerConfig {
         .comment("It should follow the syntax: modid:biome#startingSoul:maxSoul")
         .defineList("soulData", List.of("soulmancy:ebony_forest#100:100"), ServerConfig::validateSolConfig);
 
+    private static final ModConfigSpec.IntValue SOUL_FURNACE_CONSUME = BUILDER
+        .comment("How much soul should the soul furnace consume [2]")
+        .defineInRange("soulFurnaceConsume", 2, 0, Integer.MAX_VALUE);
+
+    private static final ModConfigSpec.DoubleValue SOUL_FURNACE_SPEED = BUILDER
+        .comment("A multiplier for the soul furnace speed [0.75]")
+        .defineInRange("soulFurnaceMultiplier", .75d, 0, Double.MAX_VALUE);
+
     public static final ModConfigSpec SPEC = BUILDER.build();
 
     public static List<ConfigUtils.BiomeSoulConfig> biomeConfigs;
     public static double soulFromKill, vesselFromKill;
+    public static int soulFurnaceConsume;
+    public static double soulFurnaceSpeed;
 
     private static boolean validateSolConfig(final Object obj) {
         return obj instanceof String string && ConfigUtils.BiomeSoulConfig.loadFromString(string).isPresent();
@@ -42,8 +52,13 @@ public class ServerConfig {
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event) {
+        if(!SPEC.isLoaded()) return;
+
         soulFromKill = SOUL_FROM_KILL.get();
         vesselFromKill = VESSEL_FROM_KILL.get();
+
+        soulFurnaceConsume = SOUL_FURNACE_CONSUME.get();
+        soulFurnaceSpeed = SOUL_FURNACE_SPEED.get();
 
         biomeConfigs = new ArrayList<>();
 

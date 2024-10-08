@@ -98,6 +98,12 @@ public class ModBusEvents {
             ModBlockEntities.SOUL_MANIPULATOR.get(),
             ((o, direction) -> o.getInventory())
         );
+
+        event.registerBlockEntity(
+            Capabilities.ItemHandler.BLOCK,
+            ModBlockEntities.SOUL_SMELTERY.get(),
+            ((o, direction) -> o.getInventory())
+        );
     }
 
 }

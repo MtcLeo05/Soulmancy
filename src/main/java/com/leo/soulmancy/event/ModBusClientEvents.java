@@ -5,6 +5,7 @@ import com.leo.soulmancy.client.gui.overlay.SoulMeterHUD;
 import com.leo.soulmancy.client.render.be.SoulManipulatorRenderer;
 import com.leo.soulmancy.client.render.curios.EyeCoverRenderer;
 import com.leo.soulmancy.client.screen.SoulManipulatorScreen;
+import com.leo.soulmancy.client.screen.SoulSmelteryScreen;
 import com.leo.soulmancy.init.*;
 import com.leo.soulmancy.item.SoulContainer;
 import com.leo.soulmancy.util.Utils;
@@ -114,5 +115,6 @@ public class ModBusClientEvents {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event){
         event.register(ModMenuTypes.SOUL_MANIPULATOR.get(), SoulManipulatorScreen::new);
+        event.register(ModMenuTypes.SOUL_SMELTERY.get(), SoulSmelteryScreen::new);
     }
 }

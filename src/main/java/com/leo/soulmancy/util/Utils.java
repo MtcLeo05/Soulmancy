@@ -4,10 +4,12 @@ import com.leo.soulmancy.data.SoulData;
 import com.leo.soulmancy.worldgen.biome.ModBiomes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.chunk.ChunkAccess;
@@ -36,10 +38,13 @@ public class Utils {
         return sameItemSameComponents && isCountValid;
     }
 
+    public static boolean isMouseHovering(int x, int y, int width, int height, double mouseX, double mouseY) {
+        return mouseX >= x && mouseY >= y && mouseX < x + width && mouseY < y + height;
+    }
+
     public static int colorGradient(float value, int lightColor, int darkColor) {
         if (value <= 0) return 0x00FFFFFF;
 
-        // Clamp value between 0 and 1
         value = Math.max(0, Math.min(1, value));
 
         int red = (int)(((darkColor >> 16) & 0xFF) * value + ((lightColor >> 16) & 0xFF) * (1 - value));
@@ -77,5 +82,18 @@ public class Utils {
             }
         }
         return null;
+    }
+
+    public static boolean isItemStackValid(ItemStack input, NonNullList<Ingredient> ingredients) {
+        boolean toRet = false;
+
+        for (Ingredient ingredient : ingredients) {
+            if(ingredient.test(input)) {
+                toRet = true;
+                break;
+            }
+        }
+
+        return toRet;
     }
 }

@@ -125,10 +125,7 @@ public class SoulManipulatorBE extends BaseSoulInteractor {
         if(!recipeExists) return false;
         if(!(getRecipe() instanceof SoulBurnRecipe)) return false;
 
-        boolean canInsertItemInOutput = getRecipe().getOutputStack().isEmpty() || Utils.canInsertItem(getRecipe().getOutputStack().get(), itemHandler.getStackInSlot(1));
-        boolean hasMana = getSoulInChunk().soulValue() + getRecipe().getSoul() <= getSoulInChunk().maxSoulValue();
-
-        return canInsertItemInOutput && hasMana;
+        return getSoulInChunk().soulValue() + getRecipe().getSoul() <= getSoulInChunk().maxSoulValue();
     }
 
     private boolean canHandleVesselStrengthen(){

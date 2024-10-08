@@ -9,6 +9,7 @@ import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -127,6 +128,11 @@ public abstract class BaseSoulInteractor extends BlockEntity implements MenuProv
         getChunk().setData(SOUL_DATA_ATTACHMENT, sData);
     }
 
+    public boolean doesChunkHaveSoul(int soul) {
+        SoulData sData = getSoulInChunk();
+        return sData.soulValue() >= soul;
+    }
+
     @Nullable
     @Override
     public Packet<ClientGamePacketListener> getUpdatePacket() {
@@ -139,4 +145,6 @@ public abstract class BaseSoulInteractor extends BlockEntity implements MenuProv
         saveAdditional(tag, registries);
         return tag;
     }
+
+    public abstract void tick(Level level);
 }

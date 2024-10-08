@@ -262,6 +262,16 @@ public class ModBlocks {
         )
     );
 
+    public static DeferredHolder<Block, SoulSmelteryBlock> SOUL_SMELTERY = registerBlock("soul_smeltery",
+        () -> new SoulSmelteryBlock(
+            BlockBehaviour.Properties.of()
+                .mapColor(MapColor.DEEPSLATE)
+                .sound(SoundType.DEEPSLATE)
+                .strength(3f)
+                .requiresCorrectToolForDrops()
+        )
+    );
+
     public static <T extends Block> DeferredHolder<Block, T> registerBlock(String name, Supplier<T> block) {
         DeferredHolder<Block, T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

@@ -2,6 +2,7 @@ package com.leo.soulmancy.init;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.block.entity.SoulManipulatorBE;
+import com.leo.soulmancy.block.entity.SoulSmelteryBE;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -14,6 +15,13 @@ public class ModBlockEntities {
         () -> BlockEntityType.Builder.of(
             SoulManipulatorBE::new,
             ModBlocks.SOUL_MANIPULATOR.get()
+        ).build(null)
+    );
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SoulSmelteryBE>> SOUL_SMELTERY = BLOCK_ENTITIES.register("soul_smeltery",
+        () -> BlockEntityType.Builder.of(
+            SoulSmelteryBE::new,
+            ModBlocks.SOUL_SMELTERY.get()
         ).build(null)
     );
 }
