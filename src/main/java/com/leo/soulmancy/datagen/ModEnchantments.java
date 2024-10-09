@@ -23,10 +23,10 @@ public class ModEnchantments {
             Enchantment.enchantment(
                 Enchantment.definition(
                     itemHolderGetter.getOrThrow(ItemTags.SHARP_WEAPON_ENCHANTABLE),
-                    5,
+                    25,
                     3,
                     Enchantment.dynamicCost(5, 8),
-                    Enchantment.dynamicCost(55, 8),
+                    Enchantment.dynamicCost(15, 8),
                     2,
                     EquipmentSlotGroup.MAINHAND
                 )
