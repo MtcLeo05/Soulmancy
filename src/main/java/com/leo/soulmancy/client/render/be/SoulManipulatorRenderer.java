@@ -1,6 +1,7 @@
 package com.leo.soulmancy.client.render.be;
 
 import com.leo.soulmancy.block.entity.SoulManipulatorBE;
+import com.leo.soulmancy.util.Utils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
@@ -31,41 +32,27 @@ public class SoulManipulatorRenderer implements BlockEntityRenderer<SoulManipula
         ItemStack output = soulManipulatorBE.getInventory().getStackInSlot(1);
 
         if(!input.isEmpty()) {
-            poseStack.pushPose();
-            poseStack.translate(12.75 / 16f, 17 / 16f, 0.5f);
-            poseStack.scale(0.25f, 0.25f, 0.25f);
-            BakedModel inputModel = itemRenderer.getModel(input, level, null, 0);
-
-            itemRenderer.render(
-                input,
-                ItemDisplayContext.FIXED,
-                false,
+            Utils.renderSpinningItem(
                 poseStack,
-                multiBufferSource,
+                12.9f / 16, 17 / 16f, 0.45f, 0.2f,
+                level,
+                input,
                 light,
                 overlay,
-                inputModel
+                multiBufferSource
             );
-            poseStack.popPose();
         }
 
         if(!output.isEmpty()) {
-            poseStack.pushPose();
-            poseStack.translate(3.25 / 16f, 17 / 16f, 0.5f);
-            poseStack.scale(0.25f, 0.25f, 0.25f);
-            BakedModel outputModel = itemRenderer.getModel(output, level, null, 0);
-
-            itemRenderer.render(
-                output,
-                ItemDisplayContext.GUI,
-                false,
+            Utils.renderSpinningItem(
                 poseStack,
-                multiBufferSource,
+                3.1f / 16f, 17 / 16f, 0.45f, 0.2f,
+                level,
+                output,
                 light,
                 overlay,
-                outputModel
+                multiBufferSource
             );
-            poseStack.popPose();
         }
     }
 
