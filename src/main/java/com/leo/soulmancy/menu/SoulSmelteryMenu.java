@@ -1,9 +1,8 @@
 package com.leo.soulmancy.menu;
 
-import com.leo.soulmancy.block.entity.SoulManipulatorBE;
+import com.leo.soulmancy.block.entity.SoulSmelteryBE;
 import com.leo.soulmancy.init.ModBlocks;
 import com.leo.soulmancy.init.ModMenuTypes;
-import com.leo.soulmancy.item.SoulContainer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -16,15 +15,15 @@ import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 
-public class SoulManipulatorMenu extends AbstractContainerMenu {
-    public final SoulManipulatorBE be;
+public class SoulSmelteryMenu extends AbstractContainerMenu {
+    public final SoulSmelteryBE be;
     private final ContainerData data;
     private final IItemHandler itemHandler;
 
-    public SoulManipulatorMenu(int containerId, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.SOUL_MANIPULATOR.get(), containerId);
+    public SoulSmelteryMenu(int containerId, Inventory inv, BlockEntity entity, ContainerData data) {
+        super(ModMenuTypes.SOUL_SMELTERY.get(), containerId);
 
-        this.be = ((SoulManipulatorBE) entity);
+        this.be = ((SoulSmelteryBE) entity);
         Level level = inv.player.level();
 
         addPlayerInventory(inv);
@@ -41,30 +40,30 @@ public class SoulManipulatorMenu extends AbstractContainerMenu {
             null
         );
 
-        this.addSlot(new SlotItemHandler(itemHandler, 0, 44, 37));
-        this.addSlot(new SlotItemHandler(itemHandler, 1, 116, 37){
+        this.addSlot(new SlotItemHandler(itemHandler, 0, 56, 29));
+        this.addSlot(new SlotItemHandler(itemHandler, 1, 116, 30){
             @Override
             public boolean mayPlace(ItemStack stack) {
-                return  stack.getItem() instanceof SoulContainer;
+                return false;
             }
         });
     }
 
-    public SoulManipulatorMenu(int pContainerId, Inventory inv, FriendlyByteBuf buf) {
-        this(pContainerId, inv, inv.player.level().getBlockEntity(buf.readBlockPos()), new SimpleContainerData(4));
+    public SoulSmelteryMenu(int pContainerId, Inventory inv, FriendlyByteBuf buf) {
+        this(pContainerId, inv, inv.player.level().getBlockEntity(buf.readBlockPos()), new SimpleContainerData(6));
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 96 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 154));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
 
@@ -122,7 +121,7 @@ public class SoulManipulatorMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(pPlayer.level(), be.getBlockPos()),
-            pPlayer, ModBlocks.SOUL_MANIPULATOR.get());
+            pPlayer, ModBlocks.SOUL_SMELTERY.get());
     }
 
     public ContainerData getData() {

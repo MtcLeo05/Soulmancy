@@ -1,18 +1,19 @@
 package com.leo.soulmancy.client.screen;
 
 import com.leo.soulmancy.Soulmancy;
-import com.leo.soulmancy.menu.SoulManipulatorMenu;
+import com.leo.soulmancy.menu.SoulSmelteryMenu;
 import com.leo.soulmancy.util.Utils;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class SoulManipulatorScreen extends AbstractContainerScreen<SoulManipulatorMenu> {
-    public static ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "textures/gui/soul_manipulator.png");
+public class SoulSmelteryScreen extends AbstractContainerScreen<SoulSmelteryMenu> {
+    public static ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "textures/gui/soul_smeltery.png");
 
-    public SoulManipulatorScreen(SoulManipulatorMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public SoulSmelteryScreen(SoulSmelteryMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 
@@ -36,64 +37,53 @@ public class SoulManipulatorScreen extends AbstractContainerScreen<SoulManipulat
             0,
             0,
             176,
-            178,
-            256,
-            256
-        );
-
-        if(menu.getItemHandler().getStackInSlot(0).isEmpty()) guiGraphics.blit(
-            BACKGROUND,
-            leftPos + 44,
-            topPos + 37 ,
-            44,
-            178,
-            18,
-            18,
-            256,
-            256
-        );
-
-        if(menu.getItemHandler().getStackInSlot(1 ).isEmpty()) guiGraphics.blit(
-            BACKGROUND,
-            leftPos + 116,
-            topPos + 37 ,
-            116,
-            178,
-            18,
-            18,
+            166,
             256,
             256
         );
 
         int soul = menu.getData().get(1), maxSoul = menu.getData().get(2);
-
-        int scaledSoul = soul > 0 && maxSoul > 0 ? (soul * 71 / maxSoul): 0;
+        int scaledSoul = soul > 0 && maxSoul > 0 ? (soul * 46 / maxSoul): 0;
 
         guiGraphics.blit(
             BACKGROUND,
             leftPos + 160,
-            topPos + 80 - scaledSoul,
-             176,
+            topPos + 55 - scaledSoul,
+            176,
             9,
-             7,
+            7,
             scaledSoul,
             256,
             256
         );
 
         int progress = menu.getData().get(0), maxProgress = menu.getData().get(3);
-        if(maxProgress <= 0) return;
+        if(maxProgress > 0) {
+            int scaledProgress = progress * 22 / maxProgress;
+            guiGraphics.blit(
+                BACKGROUND,
+                leftPos + 80,
+                topPos + 30,
+                80,
+                166,
+                scaledProgress,
+                15,
+                256,
+                256
+            );
+        }
 
-        int scaledProgress = progress * 32 / maxProgress;
+        int burnTime = menu.getData().get(4);
+        int scaledFuel = (burnTime * 13) / 202;
 
         guiGraphics.blit(
             BACKGROUND,
-            leftPos + 72,
-            topPos + 40,
-             72,
-            178,
-            scaledProgress,
-            10,
+            leftPos + 157,
+            topPos + 70 - scaledFuel,
+            157,
+            181 - scaledFuel,
+            14,
+            scaledFuel,
             256,
             256
         );
@@ -110,7 +100,7 @@ public class SoulManipulatorScreen extends AbstractContainerScreen<SoulManipulat
     protected void renderTooltip(GuiGraphics guiGraphics, int x, int y) {
         super.renderTooltip(guiGraphics, x, y);
 
-        if(!Utils.isMouseHovering(leftPos + 159, topPos + 8, 9, 73, x, y)) return;
+        if(!Utils.isMouseHovering(leftPos + 159,  topPos + 8, 9, 48, x, y)) return;
 
         int soul = menu.getData().get(1), maxSoul = menu.getData().get(2);
 

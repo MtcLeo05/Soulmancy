@@ -2,9 +2,11 @@ package com.leo.soulmancy.event;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.client.gui.overlay.SoulMeterHUD;
+import com.leo.soulmancy.client.render.be.SoulCanalizerRenderer;
 import com.leo.soulmancy.client.render.be.SoulManipulatorRenderer;
 import com.leo.soulmancy.client.render.curios.EyeCoverRenderer;
 import com.leo.soulmancy.client.screen.SoulManipulatorScreen;
+import com.leo.soulmancy.client.screen.SoulSmelteryScreen;
 import com.leo.soulmancy.init.*;
 import com.leo.soulmancy.item.SoulContainer;
 import com.leo.soulmancy.util.Utils;
@@ -75,6 +77,11 @@ public class ModBusClientEvents {
             ModBlockEntities.SOUL_MANIPULATOR.get(),
             SoulManipulatorRenderer::new
         );
+
+        event.registerBlockEntityRenderer(
+            ModBlockEntities.SOUL_CANALIZER.get(),
+            SoulCanalizerRenderer::new
+        );
     }
 
     @SubscribeEvent
@@ -114,5 +121,6 @@ public class ModBusClientEvents {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event){
         event.register(ModMenuTypes.SOUL_MANIPULATOR.get(), SoulManipulatorScreen::new);
+        event.register(ModMenuTypes.SOUL_SMELTERY.get(), SoulSmelteryScreen::new);
     }
 }
