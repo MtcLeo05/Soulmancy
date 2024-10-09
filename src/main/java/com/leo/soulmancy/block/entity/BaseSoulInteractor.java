@@ -15,16 +15,12 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
-import net.neoforged.neoforge.attachment.AttachmentType;
-import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.function.Supplier;
-
 import static com.leo.soulmancy.init.ModAttachmentTypes.SOUL_DATA_ATTACHMENT;
 
-public abstract class BaseSoulInteractor extends BlockEntity implements MenuProvider {
+public abstract class BaseSoulInteractor extends BlockEntity{
     protected final ContainerData data = new ContainerData() {
         @Override
         public int get(int i) {
@@ -58,17 +54,19 @@ public abstract class BaseSoulInteractor extends BlockEntity implements MenuProv
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
-
-        itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
+        if(tag.contains("inventory")) {
+            itemHandler.deserializeNBT(registries, tag.getCompound("inventory"));
+        }
         progress = tag.getInt("progress");
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
-
-        CompoundTag inventory = itemHandler.serializeNBT(registries);
-        tag.put("inventory", inventory);
+        if(itemHandler != null) {
+            CompoundTag inventory = itemHandler.serializeNBT(registries);
+            tag.put("inventory", inventory);
+        }
         tag.putInt("progress", progress);
     }
 
@@ -93,6 +91,8 @@ public abstract class BaseSoulInteractor extends BlockEntity implements MenuProv
     }
 
     protected abstract int getRecipeDuration();
+
+    public abstract void dropContents();
 
     public void addSoulToChunk(int soul){
         SoulData sData = getSoulInChunk();

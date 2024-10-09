@@ -1,6 +1,7 @@
 package com.leo.soulmancy.block;
 
 import com.leo.soulmancy.block.entity.SoulManipulatorBE;
+import com.leo.soulmancy.block.entity.SoulSmelteryBE;
 import com.leo.soulmancy.util.ShapeUtil;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -51,6 +52,16 @@ public class SoulManipulatorBlock extends BaseEntityBlock {
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new SoulManipulatorBE(blockPos, blockState);
     }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if(level.getBlockEntity(pos) != null) {
+            ((SoulManipulatorBE) level.getBlockEntity(pos)).dropContents();
+        }
+
+        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+
 
     @Nullable
     @Override

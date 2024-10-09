@@ -74,7 +74,7 @@ public class SoulSmelteryScreen extends AbstractContainerScreen<SoulSmelteryMenu
         }
 
         int burnTime = menu.getData().get(4);
-        int scaledFuel = (burnTime * 13) / menu.getData().get(3);
+        int scaledFuel = (burnTime * 13) / 202;
 
         guiGraphics.blit(
             BACKGROUND,

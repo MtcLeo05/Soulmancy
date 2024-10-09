@@ -69,6 +69,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.DEEPSLATE_ONYX_ORE.get(), cubeAll(ModBlocks.DEEPSLATE_ONYX_ORE.get()));
         simpleBlock(ModBlocks.SOUL_STONE.get(), model(ModBlocks.SOUL_STONE));
         simpleBlock(ModBlocks.CONDENSED_SOUL.get(), cubeAll(ModBlocks.CONDENSED_SOUL.get()));
+        simpleBlock(ModBlocks.SOUL_CANALIZER.get(), model(ModBlocks.SOUL_CANALIZER));
 
         doorBlock(ModBlocks.EBONY_DOOR.get(), modLoc("block/ebony_door_bottom"), modLoc("block/ebony_door_top"));
         trapdoorBlockWithRenderType(ModBlocks.EBONY_TRAPDOOR.get(), modLoc("block/ebony_trapdoor"), true, "cutout");

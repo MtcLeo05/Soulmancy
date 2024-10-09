@@ -18,6 +18,28 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
+
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+            .add(
+                ModBlocks.ONYX_ORE.get(),
+                ModBlocks.DEEPSLATE_ONYX_ORE.get(),
+                ModBlocks.SOUL_STONE.get(),
+                ModBlocks.CONDENSED_SOUL.get(),
+                ModBlocks.SOUL_MANIPULATOR.get(),
+                ModBlocks.SOUL_SMELTERY.get(),
+                ModBlocks.SOUL_CANALIZER.get()
+            );
+
+        this.tag(BlockTags.NEEDS_STONE_TOOL)
+            .add(
+                ModBlocks.EYED_EBONY_LOG.get(),
+                ModBlocks.ONYX_ORE.get(),
+                ModBlocks.DEEPSLATE_ONYX_ORE.get(),
+                ModBlocks.SOUL_MANIPULATOR.get(),
+                ModBlocks.SOUL_SMELTERY.get(),
+                ModBlocks.SOUL_CANALIZER.get()
+            );
+
         this.tag(BlockTags.LOGS)
             .add(
                 ModBlocks.EBONY_LOG.get(),
@@ -130,25 +152,6 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.WOODEN_TRAPDOORS)
             .add(
                 ModBlocks.EBONY_TRAPDOOR.get()
-            );
-
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-            .add(
-                ModBlocks.ONYX_ORE.get(),
-                ModBlocks.DEEPSLATE_ONYX_ORE.get(),
-                ModBlocks.SOUL_STONE.get(),
-                ModBlocks.CONDENSED_SOUL.get(),
-                ModBlocks.SOUL_MANIPULATOR.get(),
-                ModBlocks.SOUL_SMELTERY.get()
-            );
-
-        this.tag(BlockTags.NEEDS_STONE_TOOL)
-            .add(
-                ModBlocks.EYED_EBONY_LOG.get(),
-                ModBlocks.ONYX_ORE.get(),
-                ModBlocks.DEEPSLATE_ONYX_ORE.get(),
-                ModBlocks.SOUL_MANIPULATOR.get(),
-                ModBlocks.SOUL_SMELTERY.get()
             );
     }
 }

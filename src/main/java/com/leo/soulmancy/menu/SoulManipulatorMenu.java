@@ -1,6 +1,5 @@
 package com.leo.soulmancy.menu;
 
-import com.leo.soulmancy.block.entity.BaseSoulInteractor;
 import com.leo.soulmancy.block.entity.SoulManipulatorBE;
 import com.leo.soulmancy.init.ModBlocks;
 import com.leo.soulmancy.init.ModMenuTypes;

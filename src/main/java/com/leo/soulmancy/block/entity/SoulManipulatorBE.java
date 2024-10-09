@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class SoulManipulatorBE extends BaseSoulInteractor {
+public class SoulManipulatorBE extends BaseSoulInteractorMenuProvider {
     public SoulManipulatorBE(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.SOUL_MANIPULATOR.get(), pos, blockState);
         itemHandler = new ItemStackHandler(2){

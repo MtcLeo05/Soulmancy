@@ -56,6 +56,17 @@ public class SoulSmelteryBlock extends BaseEntityBlock {
     }
 
     @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if(!newState.is(state.getBlock())) {
+            if(level.getBlockEntity(pos) != null) {
+                ((SoulSmelteryBE) level.getBlockEntity(pos)).dropContents();
+            }
+
+        }
+        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+
+    @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         if (!state.getValue(LIT)) {
             return;

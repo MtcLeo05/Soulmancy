@@ -5,7 +5,6 @@ import com.leo.soulmancy.block.SoulSmelteryBlock;
 import com.leo.soulmancy.config.ServerConfig;
 import com.leo.soulmancy.init.ModBlockEntities;
 import com.leo.soulmancy.menu.SoulSmelteryMenu;
-import com.leo.soulmancy.recipe.manipulator.BaseManipulatorRecipe;
 import com.leo.soulmancy.util.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -28,7 +27,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class SoulSmelteryBE extends BaseSoulInteractor {
+public class SoulSmelteryBE extends BaseSoulInteractorMenuProvider {
 
     private int remainingFuel = 0;
 
@@ -68,7 +67,6 @@ public class SoulSmelteryBE extends BaseSoulInteractor {
         };
     }
 
-
     @Override
     protected int getRecipeDuration() {
         return getRecipe() != null? (int) (getRecipe().getCookingTime() * ServerConfig.soulFurnaceSpeed): 40;
@@ -83,7 +81,7 @@ public class SoulSmelteryBE extends BaseSoulInteractor {
         level.setBlockAndUpdate(getBlockPos(), getBlockState().setValue(SoulSmelteryBlock.LIT, true));
 
         if(--remainingFuel <= 0) {
-            remainingFuel = (int) (202 * ServerConfig.soulFurnaceSpeed);
+            remainingFuel = 202;
             removeSoulToChunk(ServerConfig.soulFurnaceConsume);
         }
 
