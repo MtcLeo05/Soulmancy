@@ -38,7 +38,7 @@ public class DataGenerators {
 
         generator.addProvider(event.includeClient(), new ModRecipeProvider(packOutput, provider));
 
-        generator.addProvider(event.includeClient(), new ModWorldGenProvider(packOutput, provider));
+        generator.addProvider(event.includeClient(), new ModMiscDataProvider(packOutput, provider));
 
         generator.addProvider(event.includeClient(), new ModLanguageProvider(packOutput, "en_us"));
     }

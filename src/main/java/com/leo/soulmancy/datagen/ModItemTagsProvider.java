@@ -39,7 +39,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 ModItems.SIGHT_LENS.get()
             );
 
-        this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
+        this.tag(ItemTags.WEAPON_ENCHANTABLE)
             .add(
                 ModItems.SOUL_SCYTHE.get()
             );
