@@ -2,12 +2,18 @@ package com.leo.soulmancy.util;
 
 import com.leo.soulmancy.data.SoulData;
 import com.leo.soulmancy.worldgen.biome.ModBiomes;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -71,6 +77,34 @@ public class Utils {
         SoulData data = chunk.getData(SOUL_DATA_ATTACHMENT);
         data = new SoulData(data.soulValue(), data.maxSoulValue() + vessel);
         chunk.setData(SOUL_DATA_ATTACHMENT, data);
+    }
+
+    public static void renderSpinningItem(PoseStack poseStack,
+                                          float x, float y, float z, float scale,
+                                          Level level,
+                                          ItemStack item,
+                                          int light,
+                                          int overlay,
+                                          MultiBufferSource buffer){
+        ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
+
+        poseStack.pushPose();
+        poseStack.translate(x, y, z);
+        poseStack.scale(scale, scale, scale);
+        poseStack.mulPose(Axis.YP.rotationDegrees(level.getGameTime() * 4));
+
+        itemRenderer.renderStatic(
+            item,
+            ItemDisplayContext.FIXED,
+            light,
+            overlay,
+            poseStack,
+            buffer,
+            level,
+            1
+        );
+
+        poseStack.popPose();
     }
 
     public static Holder<Enchantment> getEnchantmentHolder(RegistryAccess access, ResourceKey<Enchantment> enchantment) {
