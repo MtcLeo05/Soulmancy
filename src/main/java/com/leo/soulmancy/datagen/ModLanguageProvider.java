@@ -55,6 +55,23 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(ModItems.CAPSULE_STACK.get(), "Soul Capsule Stack");
         this.add(ModItems.SOUL_SCYTHE.get(), "Soul Reaping Scythe");
 
+        this.add(ModItems.MINERS_TALISMAN1.get(), "Miner's Talisman 1");
+        this.add(ModItems.MINERS_TALISMAN2.get(), "Miner's Talisman 2");
+        this.add(ModItems.MINERS_TALISMAN3.get(), "Miner's Talisman 3");
+
+        this.add(ModItems.FIGHTERS_TALISMAN1.get(), "Fighter's Talisman 1");
+        this.add(ModItems.FIGHTERS_TALISMAN2.get(), "Fighter's Talisman 2");
+        this.add(ModItems.FIGHTERS_TALISMAN3.get(), "Fighter's Talisman 3");
+
+        this.add(ModItems.RUNNERS_TALISMAN1.get(), "Runner's Talisman 1");
+        this.add(ModItems.RUNNERS_TALISMAN2.get(), "Runner's Talisman 2");
+
+        this.add(Soulmancy.MODID + ".item.moreInfo", "----Press Shift for info----");
+        this.add(Soulmancy.MODID + ".item.soulConsume", "%d Soul/s");
+        this.add(Soulmancy.MODID + ".item.soulChunk", "%d if taken from chunk");
+        this.add(Soulmancy.MODID + ".item.talisman.effectList", "Effects:");
+        this.add(Soulmancy.MODID + ".item.talisman.effect", "%d %d");
+
         this.add(Soulmancy.MODID + ".item.noBiomeFound", "Nothing important found...");
 
         this.add(Soulmancy.MODID + ".jei.anvilCrush", "Anvil Crushing");
@@ -68,6 +85,7 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(Soulmancy.MODID + ".jei.vesselIncrease", "Vessel Increase: %d");
 
         this.add("curios.identifier.eye", "Eye Slot");
+        this.add("curios.identifier.talisman", "Talisman Slot");
 
         this.add("enchantment." + Soulmancy.MODID + ".soul_reaping", "Soul Reaping");
         this.add("enchantment." + Soulmancy.MODID + ".soul_reaping.desc", "Converts killed entities' max HP to soul usable in recipes");

@@ -2,6 +2,7 @@ package com.leo.soulmancy.init;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.data.SoulData;
+import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
@@ -23,7 +24,12 @@ public class ModDataComponents {
         () -> DataComponentType.<SoulData>builder()
             .persistent(SoulData.CODEC)
             .build()
+    );
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> TALISMAN_COOLDOWN = DATA_COMPONENTS.register("talisman_cooldown",
+        () -> DataComponentType.<Integer>builder()
+            .persistent(Codec.INT)
+            .build()
     );
 
 }

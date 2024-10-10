@@ -1,0 +1,6 @@
+{
+    "replace": false,
+    "size": 1,
+    "operation": "SET",
+    "icon": "soulmancy:slot/empty_talisman_slot"
+}

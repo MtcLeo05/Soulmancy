@@ -3,6 +3,7 @@ package com.leo.soulmancy.datagen;
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.init.ModBlocks;
 import com.leo.soulmancy.init.ModItems;
+import com.leo.soulmancy.item.TalismanItem;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -11,6 +12,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -18,6 +20,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     public static final TagKey<Item> FAUX_ONYX = createTag("faux_onyx");
     public static final TagKey<Item> EYE_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", "eye"));
+    public static final TagKey<Item> TALISMAN_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", "talisman"));
 
     public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags) {
         super(output, lookupProvider, blockTags);
@@ -37,6 +40,18 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .add(
                 ModItems.REVEALING_EYE.get(),
                 ModItems.SIGHT_LENS.get()
+            );
+
+        this.tag(TALISMAN_CURIOS)
+            .add(
+                ModItems.MINERS_TALISMAN1.get(),
+                ModItems.MINERS_TALISMAN2.get(),
+                ModItems.MINERS_TALISMAN3.get(),
+                ModItems.FIGHTERS_TALISMAN1.get(),
+                ModItems.FIGHTERS_TALISMAN2.get(),
+                ModItems.FIGHTERS_TALISMAN3.get(),
+                ModItems.RUNNERS_TALISMAN1.get(),
+                ModItems.RUNNERS_TALISMAN2.get()
             );
 
         this.tag(ItemTags.WEAPON_ENCHANTABLE)

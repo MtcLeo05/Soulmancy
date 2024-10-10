@@ -1,0 +1,12 @@
+{
+	"parent": "minecraft:item/handheld",
+	"loader": "neoforge:separate_transforms",
+	"base": {
+		"parent": "soulmancy:item/runners_talisman2_item"
+	},
+	"perspectives": {
+		"head": {
+			"parent": "soulmancy:item/runners_talisman_model"
+		}
+	}
+}

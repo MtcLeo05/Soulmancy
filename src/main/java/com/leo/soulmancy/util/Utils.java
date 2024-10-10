@@ -1,6 +1,7 @@
 package com.leo.soulmancy.util;
 
 import com.leo.soulmancy.data.SoulData;
+import com.leo.soulmancy.item.SoulContainer;
 import com.leo.soulmancy.worldgen.biome.ModBiomes;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -13,6 +14,8 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -69,6 +72,41 @@ public class Utils {
 
         data = new SoulData(data.soulValue() + toAdd, data.maxSoulValue());
         chunk.setData(SOUL_DATA_ATTACHMENT, data);
+    }
+
+    public static void removeSoulToChunk(BlockPos pos, int soul, Level level) {
+        ChunkAccess chunk = level.getChunk(pos);
+
+        SoulData sData = chunk.getData(SOUL_DATA_ATTACHMENT);
+
+        int soulValue = sData.soulValue() - soul;
+        soulValue = Math.clamp(soulValue, 0, sData.maxSoulValue());
+
+        sData = new SoulData(soulValue, sData.maxSoulValue());
+        chunk.setData(SOUL_DATA_ATTACHMENT, sData);
+    }
+
+    public static int getSoulInChunk(BlockPos pos, Level level) {
+        ChunkAccess chunk = level.getChunk(pos);
+
+        SoulData data = chunk.getData(SOUL_DATA_ATTACHMENT);
+        return data.soulValue();
+    }
+
+    public static ItemStack getSoulContainerInPlayer(ServerPlayer sPlayer){
+        return Utils.getSoulContainerInPlayer(sPlayer, 0);
+    }
+
+    public static ItemStack getSoulContainerInPlayer(ServerPlayer sPlayer, int minSoul){
+        Inventory inventory = sPlayer.getInventory();
+
+        for (ItemStack item : inventory.items) {
+            if(item.getItem() instanceof SoulContainer) {
+                if(SoulContainer.getSoul(item)[0] >= minSoul) return item;
+            }
+        }
+
+        return ItemStack.EMPTY;
     }
 
     public static void addVesselToChunk(BlockPos pos, int vessel, Level level) {

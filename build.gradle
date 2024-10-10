@@ -104,7 +104,6 @@ dependencies {
     implementation "curse.maven:curios-continuation-1037991:5765721"
     implementation "curse.maven:curious-armor-stands-398784:5578731"
     implementation "curse.maven:patchouli-306770:5683901"
-    implementation "curse.maven:playeranimator-658587:5698755"
 
 }
 

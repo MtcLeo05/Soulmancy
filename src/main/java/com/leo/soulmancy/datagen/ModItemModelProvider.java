@@ -3,6 +3,7 @@ package com.leo.soulmancy.datagen;
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.init.ModBlocks;
 import com.leo.soulmancy.init.ModItems;
+import com.leo.soulmancy.item.TalismanItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -33,20 +34,34 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         trapdoorItem(ModBlocks.EBONY_TRAPDOOR);
 
-        //Calls the function 31 times, while keeping the format with 2 digits
+        simpleItem2Textures(ModItems.SOUL_CAPSULE,"item/soul_capsule0","item/soul_capsule1");
+        simpleItem2Textures(ModItems.CAPSULE_STACK,"item/capsule_stack0","item/capsule_stack1");
+
+        simpleItem2Textures("miners_talisman1_item", "item/miners_talisman", "item/tlevel_1");
+        simpleItem2Textures("miners_talisman2_item", "item/miners_talisman", "item/tlevel_2");
+        simpleItem2Textures("miners_talisman3_item", "item/miners_talisman", "item/tlevel_3");
+
+        simpleItem2Textures("fighters_talisman1_item", "item/fighters_talisman", "item/tlevel_1");
+        simpleItem2Textures("fighters_talisman2_item", "item/fighters_talisman", "item/tlevel_2");
+        simpleItem2Textures("fighters_talisman3_item", "item/fighters_talisman", "item/tlevel_3");
+
+        simpleItem2Textures("runners_talisman1_item", "item/runners_talisman", "item/tlevel_1");
+        simpleItem2Textures("runners_talisman2_item", "item/runners_talisman", "item/tlevel_2");
+
         for (int i = 0; i <= 31; i++) {
             simpleItem("compass_" + String.format("%02d", i));
         }
+    }
 
-        withExistingParent(ModItems.SOUL_CAPSULE.getId().getPath(),
-            ResourceLocation.withDefaultNamespace("item/generated"))
-            .texture("layer0", ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "item/soul_capsule0"))
-            .texture("layer1", ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "item/soul_capsule1"));
+    private void simpleItem2Textures(DeferredHolder<Item, ? extends Item> item, String texture1, String texture2) {
+        simpleItem2Textures(item.getId().getPath(), texture1, texture2);
+    }
 
-        withExistingParent(ModItems.CAPSULE_STACK.getId().getPath(),
+    private void simpleItem2Textures(String name, String texture1, String texture2) {
+        withExistingParent(name,
             ResourceLocation.withDefaultNamespace("item/generated"))
-            .texture("layer0", ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "item/capsule_stack0"))
-            .texture("layer1", ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "item/capsule_stack1"));
+            .texture("layer0", ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, texture1))
+            .texture("layer1", ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, texture2));
     }
 
     private void simpleBlockItem(DeferredHolder<Block, ? extends Block> item) {

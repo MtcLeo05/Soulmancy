@@ -4,6 +4,7 @@ import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.client.gui.overlay.SoulMeterHUD;
 import com.leo.soulmancy.client.render.be.SoulCanalizerRenderer;
 import com.leo.soulmancy.client.render.be.SoulManipulatorRenderer;
+import com.leo.soulmancy.client.render.curios.ArmBandRenderer;
 import com.leo.soulmancy.client.render.curios.EyeCoverRenderer;
 import com.leo.soulmancy.client.screen.SoulManipulatorScreen;
 import com.leo.soulmancy.client.screen.SoulSmelteryScreen;
@@ -85,7 +86,7 @@ public class ModBusClientEvents {
     }
 
     @SubscribeEvent
-    public static void modClientSetup(FMLClientSetupEvent event){
+    public static void modClientSetup(FMLClientSetupEvent ignore){
         ItemProperties.register(
             ModItems.OCCULT_COMPASS.get(),
             ResourceLocation.withDefaultNamespace("angle"),
@@ -99,6 +100,11 @@ public class ModBusClientEvents {
             })
         );
 
+
+    }
+
+    @SubscribeEvent
+    public static void registerCuriosRenderer(FMLClientSetupEvent ignore){
         CuriosRendererRegistry.register(
             ModItems.REVEALING_EYE.get(),
             EyeCoverRenderer::new
@@ -107,6 +113,46 @@ public class ModBusClientEvents {
         CuriosRendererRegistry.register(
             ModItems.SIGHT_LENS.get(),
             EyeCoverRenderer::new
+        );
+
+        CuriosRendererRegistry.register(
+            ModItems.MINERS_TALISMAN1.get(),
+            ArmBandRenderer::new
+        );
+
+        CuriosRendererRegistry.register(
+            ModItems.MINERS_TALISMAN2.get(),
+            ArmBandRenderer::new
+        );
+
+        CuriosRendererRegistry.register(
+            ModItems.MINERS_TALISMAN3.get(),
+            ArmBandRenderer::new
+        );
+
+        CuriosRendererRegistry.register(
+            ModItems.FIGHTERS_TALISMAN1.get(),
+            ArmBandRenderer::new
+        );
+
+        CuriosRendererRegistry.register(
+            ModItems.FIGHTERS_TALISMAN2.get(),
+            ArmBandRenderer::new
+        );
+
+        CuriosRendererRegistry.register(
+            ModItems.FIGHTERS_TALISMAN3.get(),
+            ArmBandRenderer::new
+        );
+
+        CuriosRendererRegistry.register(
+            ModItems.RUNNERS_TALISMAN1.get(),
+            ArmBandRenderer::new
+        );
+
+        CuriosRendererRegistry.register(
+            ModItems.RUNNERS_TALISMAN2.get(),
+            ArmBandRenderer::new
         );
     }
 
