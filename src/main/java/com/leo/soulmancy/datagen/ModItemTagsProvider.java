@@ -12,6 +12,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.concurrent.CompletableFuture;
@@ -55,6 +56,41 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             );
 
         this.tag(ItemTags.WEAPON_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(ItemTags.SWORD_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(ItemTags.VANISHING_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(Tags.Items.MELEE_WEAPON_TOOLS)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(Tags.Items.ENCHANTABLES)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(ItemTags.FIRE_ASPECT_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(ItemTags.DURABILITY_ENCHANTABLE)
             .add(
                 ModItems.SOUL_SCYTHE.get()
             );

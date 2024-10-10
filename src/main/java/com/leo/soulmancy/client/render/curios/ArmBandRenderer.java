@@ -23,9 +23,6 @@ public class ArmBandRenderer implements ICurioRenderer {
         ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
 
         matrixStack.pushPose();
-        //matrixStack.mulPose(Axis.YP.rotationDegrees(netHeadYaw));
-        //matrixStack.mulPose(Axis.XP.rotationDegrees(headPitch));
-
         matrixStack.pushPose();
 
         matrixStack.mulPose(Axis.ZN.rotationDegrees(180));
