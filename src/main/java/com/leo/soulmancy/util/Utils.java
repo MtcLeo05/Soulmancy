@@ -97,6 +97,18 @@ public class Utils {
         return Utils.getSoulContainerInPlayer(sPlayer, 0);
     }
 
+    public static ItemStack getNonFullSoulContainerInPlayer(ServerPlayer sPlayer, int min){
+        Inventory inventory = sPlayer.getInventory();
+
+        for (ItemStack item : inventory.items) {
+            if(item.getItem() instanceof SoulContainer) {
+                if(SoulContainer.getSoul(item)[0] + min <= SoulContainer.getSoul(item)[1]) return item;
+            }
+        }
+
+        return ItemStack.EMPTY;
+    }
+
     public static ItemStack getSoulContainerInPlayer(ServerPlayer sPlayer, int minSoul){
         Inventory inventory = sPlayer.getInventory();
 

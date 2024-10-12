@@ -29,6 +29,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.SUSTENANCE_CHARM);
 
+        simpleItem(ModItems.SOULMANCERS_ROBE);
+
         fenceItem(ModBlocks.EBONY_FENCE, ModBlocks.EBONY_PLANKS);
         buttonItem(ModBlocks.EBONY_BUTTON, ModBlocks.EBONY_PLANKS);
 

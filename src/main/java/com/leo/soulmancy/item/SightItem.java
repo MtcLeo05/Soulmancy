@@ -2,9 +2,12 @@ package com.leo.soulmancy.item;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.data.PlayerData;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.neoforge.network.PacketDistributor;
 import top.theillusivec4.curios.api.SlotContext;
 
@@ -13,7 +16,7 @@ import java.util.List;
 
 import static com.leo.soulmancy.init.ModAttachmentTypes.PLAYER_DATA_ATTACHMENT;
 
-public class SightItem extends BaseCuriosItem {
+public class SightItem extends Item implements BaseCurios {
     private final boolean clearVision;
 
     public SightItem(Properties properties, boolean clearVision) {
@@ -61,5 +64,17 @@ public class SightItem extends BaseCuriosItem {
         List<Component> toReturn = new ArrayList<>();
         toReturn.add(Component.translatable(Soulmancy.MODID + ".item.sight." + (clearVision ? "pure": "impure")));
         return toReturn;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+
+        if (!Screen.hasShiftDown()) {
+            tooltipComponents.add(Component.translatable(Soulmancy.MODID + ".item.moreInfo"));
+            return;
+        }
+
+        tooltipComponents.addAll(detailedInfo(stack));
     }
 }

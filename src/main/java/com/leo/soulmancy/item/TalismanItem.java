@@ -3,13 +3,16 @@ package com.leo.soulmancy.item;
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.init.ModDataComponents;
 import com.leo.soulmancy.util.Utils;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 
@@ -18,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class TalismanItem extends BaseCuriosItem {
+public class TalismanItem extends Item implements BaseCurios {
     private final Map<Holder<MobEffect>, Integer> effects;
     private final int soulConsumed;
     private final float chunkMultiplier;
@@ -103,5 +106,17 @@ public class TalismanItem extends BaseCuriosItem {
                 )
             );
         });
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+
+        if (!Screen.hasShiftDown()) {
+            tooltipComponents.add(Component.translatable(Soulmancy.MODID + ".item.moreInfo"));
+            return;
+        }
+
+        tooltipComponents.addAll(detailedInfo(stack));
     }
 }

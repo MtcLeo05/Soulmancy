@@ -151,4 +151,10 @@ public class ModItems {
         )
     );
 
+    public static final DeferredHolder<Item, SoulmancersRobeItem> SOULMANCERS_ROBE = ITEMS.register("soulmancers_robe",
+        () -> new SoulmancersRobeItem(
+            new Item.Properties().stacksTo(1)
+        )
+    );
+
 }

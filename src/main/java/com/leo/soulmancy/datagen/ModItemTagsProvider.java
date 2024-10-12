@@ -23,6 +23,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     public static final TagKey<Item> EYE_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", "eye"));
     public static final TagKey<Item> TALISMAN_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", "talisman"));
     public static final TagKey<Item> CHARM_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", "charm"));
+    public static final TagKey<Item> BACK_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", "back"));
 
     public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags) {
         super(output, lookupProvider, blockTags);
@@ -59,6 +60,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         this.tag(CHARM_CURIOS)
             .add(
                 ModItems.SUSTENANCE_CHARM.get()
+            );
+
+        this.tag(BACK_CURIOS)
+            .add(
+                ModItems.SOULMANCERS_ROBE.get()
             );
 
         this.tag(ItemTags.WEAPON_ENCHANTABLE)

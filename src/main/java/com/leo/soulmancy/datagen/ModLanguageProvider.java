@@ -68,6 +68,8 @@ public class ModLanguageProvider extends LanguageProvider {
 
         this.add(ModItems.SUSTENANCE_CHARM.get(), "Charm of Sustenance");
 
+        this.add(ModItems.SOULMANCERS_ROBE.get(), "Soulmancer's Robe");
+
         this.add(Soulmancy.MODID + ".item.moreInfo", "----Press Shift for info----");
         this.add(Soulmancy.MODID + ".item.soulConsume", "%d Soul every %d ticks");
         this.add(Soulmancy.MODID + ".item.soulChunk", "%d if taken from chunk");
@@ -80,6 +82,11 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(Soulmancy.MODID + ".item.sight.pure", "Allows gathering information on the world. Has been perfected");
 
         this.add(Soulmancy.MODID + ".item.sustenance", "Replenishes the bearer's hunger, at a price");
+
+        this.add(Soulmancy.MODID + ".item.robeFlavor", "A soulmancer's best friend");
+        this.add(Soulmancy.MODID + ".item.robeEffect", "Is able to gather soul from another plane of existence, how to contain it is up to you");
+
+        this.add(Soulmancy.MODID + ".item.robeEffect2", "Not using it as your main protection may lessen some of the effects");
 
         this.add(Soulmancy.MODID + ".item.noBiomeFound", "Nothing of importance was found...");
 
