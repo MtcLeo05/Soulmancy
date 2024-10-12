@@ -4,6 +4,8 @@ import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.client.gui.overlay.SoulMeterHUD;
 import com.leo.soulmancy.client.render.be.SoulCanalizerRenderer;
 import com.leo.soulmancy.client.render.be.SoulManipulatorRenderer;
+import com.leo.soulmancy.client.render.curios.HeartRenderer;
+import com.leo.soulmancy.client.render.curios.PendantRenderer;
 import com.leo.soulmancy.client.render.curios.EyeCoverRenderer;
 import com.leo.soulmancy.client.screen.SoulManipulatorScreen;
 import com.leo.soulmancy.client.screen.SoulSmelteryScreen;
@@ -85,7 +87,7 @@ public class ModBusClientEvents {
     }
 
     @SubscribeEvent
-    public static void modClientSetup(FMLClientSetupEvent event){
+    public static void modClientSetup(FMLClientSetupEvent ignore){
         ItemProperties.register(
             ModItems.OCCULT_COMPASS.get(),
             ResourceLocation.withDefaultNamespace("angle"),
@@ -98,16 +100,25 @@ public class ModBusClientEvents {
                 return null;
             })
         );
+    }
 
-        CuriosRendererRegistry.register(
-            ModItems.REVEALING_EYE.get(),
-            EyeCoverRenderer::new
-        );
+    @SubscribeEvent
+    public static void registerCuriosRenderer(FMLClientSetupEvent ignore){
+        EyeCoverRenderer.registerItem(ModItems.REVEALING_EYE.get());
+        EyeCoverRenderer.registerItem(ModItems.SIGHT_LENS.get());
 
-        CuriosRendererRegistry.register(
-            ModItems.SIGHT_LENS.get(),
-            EyeCoverRenderer::new
-        );
+        PendantRenderer.registerItem(ModItems.MINERS_TALISMAN1.get());
+        PendantRenderer.registerItem(ModItems.MINERS_TALISMAN2.get());
+        PendantRenderer.registerItem(ModItems.MINERS_TALISMAN3.get());
+
+        PendantRenderer.registerItem(ModItems.FIGHTERS_TALISMAN1.get());
+        PendantRenderer.registerItem(ModItems.FIGHTERS_TALISMAN2.get());
+        PendantRenderer.registerItem(ModItems.FIGHTERS_TALISMAN3.get());
+
+        PendantRenderer.registerItem(ModItems.RUNNERS_TALISMAN1.get());
+        PendantRenderer.registerItem(ModItems.RUNNERS_TALISMAN2.get());
+
+        HeartRenderer.registerItem(ModItems.SUSTENANCE_CHARM.get());
     }
 
     @SubscribeEvent

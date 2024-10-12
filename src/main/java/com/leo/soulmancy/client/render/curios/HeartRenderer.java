@@ -16,7 +16,7 @@ import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 import top.theillusivec4.curios.api.client.ICurioRenderer;
 
-public class EyeCoverRenderer implements ICurioRenderer {
+public class HeartRenderer implements ICurioRenderer {
     @Override
     public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack stack, SlotContext slotContext, PoseStack matrixStack, RenderLayerParent<T, M> renderLayerParent,
                                                                           MultiBufferSource renderTypeBuffer, int light, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks,
@@ -25,15 +25,12 @@ public class EyeCoverRenderer implements ICurioRenderer {
         ItemRenderer renderer = Minecraft.getInstance().getItemRenderer();
 
         matrixStack.pushPose();
-        matrixStack.mulPose(Axis.YP.rotationDegrees(netHeadYaw));
-
-        matrixStack.mulPose(Axis.XP.rotationDegrees(headPitch));
-
         matrixStack.pushPose();
+
         matrixStack.mulPose(Axis.ZN.rotationDegrees(180));
 
-        matrixStack.scale(0.2f, 0.2f, 0.2f);
-        matrixStack.translate(.55f, 1.1f, -1.5f);
+        matrixStack.scale(0.1f, 0.1f, 0.1f);
+        matrixStack.translate(1.5f, -2f, -1.5);
 
         matrixStack.mulPose(Axis.YP.rotationDegrees(180));
 
@@ -45,7 +42,7 @@ public class EyeCoverRenderer implements ICurioRenderer {
             matrixStack,
             renderTypeBuffer,
             Minecraft.getInstance().level,
-            0
+            1
         );
 
         matrixStack.popPose();
@@ -55,7 +52,7 @@ public class EyeCoverRenderer implements ICurioRenderer {
     public static void registerItem(Item item){
         CuriosRendererRegistry.register(
             item,
-            EyeCoverRenderer::new
+            HeartRenderer::new
         );
     }
 }
