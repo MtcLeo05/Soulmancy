@@ -4,7 +4,8 @@ import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.client.gui.overlay.SoulMeterHUD;
 import com.leo.soulmancy.client.render.be.SoulCanalizerRenderer;
 import com.leo.soulmancy.client.render.be.SoulManipulatorRenderer;
-import com.leo.soulmancy.client.render.curios.ArmBandRenderer;
+import com.leo.soulmancy.client.render.curios.HeartRenderer;
+import com.leo.soulmancy.client.render.curios.PendantRenderer;
 import com.leo.soulmancy.client.render.curios.EyeCoverRenderer;
 import com.leo.soulmancy.client.screen.SoulManipulatorScreen;
 import com.leo.soulmancy.client.screen.SoulSmelteryScreen;
@@ -99,61 +100,25 @@ public class ModBusClientEvents {
                 return null;
             })
         );
-
-
     }
 
     @SubscribeEvent
     public static void registerCuriosRenderer(FMLClientSetupEvent ignore){
-        CuriosRendererRegistry.register(
-            ModItems.REVEALING_EYE.get(),
-            EyeCoverRenderer::new
-        );
+        EyeCoverRenderer.registerItem(ModItems.REVEALING_EYE.get());
+        EyeCoverRenderer.registerItem(ModItems.SIGHT_LENS.get());
 
-        CuriosRendererRegistry.register(
-            ModItems.SIGHT_LENS.get(),
-            EyeCoverRenderer::new
-        );
+        PendantRenderer.registerItem(ModItems.MINERS_TALISMAN1.get());
+        PendantRenderer.registerItem(ModItems.MINERS_TALISMAN2.get());
+        PendantRenderer.registerItem(ModItems.MINERS_TALISMAN3.get());
 
-        CuriosRendererRegistry.register(
-            ModItems.MINERS_TALISMAN1.get(),
-            ArmBandRenderer::new
-        );
+        PendantRenderer.registerItem(ModItems.FIGHTERS_TALISMAN1.get());
+        PendantRenderer.registerItem(ModItems.FIGHTERS_TALISMAN2.get());
+        PendantRenderer.registerItem(ModItems.FIGHTERS_TALISMAN3.get());
 
-        CuriosRendererRegistry.register(
-            ModItems.MINERS_TALISMAN2.get(),
-            ArmBandRenderer::new
-        );
+        PendantRenderer.registerItem(ModItems.RUNNERS_TALISMAN1.get());
+        PendantRenderer.registerItem(ModItems.RUNNERS_TALISMAN2.get());
 
-        CuriosRendererRegistry.register(
-            ModItems.MINERS_TALISMAN3.get(),
-            ArmBandRenderer::new
-        );
-
-        CuriosRendererRegistry.register(
-            ModItems.FIGHTERS_TALISMAN1.get(),
-            ArmBandRenderer::new
-        );
-
-        CuriosRendererRegistry.register(
-            ModItems.FIGHTERS_TALISMAN2.get(),
-            ArmBandRenderer::new
-        );
-
-        CuriosRendererRegistry.register(
-            ModItems.FIGHTERS_TALISMAN3.get(),
-            ArmBandRenderer::new
-        );
-
-        CuriosRendererRegistry.register(
-            ModItems.RUNNERS_TALISMAN1.get(),
-            ArmBandRenderer::new
-        );
-
-        CuriosRendererRegistry.register(
-            ModItems.RUNNERS_TALISMAN2.get(),
-            ArmBandRenderer::new
-        );
+        HeartRenderer.registerItem(ModItems.SUSTENANCE_CHARM.get());
     }
 
     @SubscribeEvent

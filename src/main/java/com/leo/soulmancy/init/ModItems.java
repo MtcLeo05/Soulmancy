@@ -2,24 +2,12 @@ package com.leo.soulmancy.init;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.item.*;
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EquipmentSlotGroup;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tiers;
-import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import oshi.util.tuples.Pair;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class ModItems {
@@ -154,6 +142,12 @@ public class ModItems {
             Map.of(MobEffects.MOVEMENT_SPEED, 4, MobEffects.REGENERATION, 2),
             24,
             2f
+        )
+    );
+
+    public static final DeferredHolder<Item, SustenanceCharmItem> SUSTENANCE_CHARM = ITEMS.register("sustenance_charm",
+        () -> new SustenanceCharmItem(
+            new Item.Properties().stacksTo(1)
         )
     );
 

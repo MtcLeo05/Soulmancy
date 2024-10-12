@@ -26,9 +26,15 @@ public class ModDataComponents {
             .build()
     );
 
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> TALISMAN_COOLDOWN = DATA_COMPONENTS.register("talisman_cooldown",
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> EQUIPPABLE_COOLDOWN = DATA_COMPONENTS.register("equippable_cooldown",
         () -> DataComponentType.<Integer>builder()
             .persistent(Codec.INT)
+            .build()
+    );
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> GENERIC_MODE = DATA_COMPONENTS.register("generic_mode",
+        () -> DataComponentType.<Boolean>builder()
+            .persistent(Codec.BOOL)
             .build()
     );
 

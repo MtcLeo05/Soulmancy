@@ -1,10 +1,15 @@
 package com.leo.soulmancy.item;
 
+import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.data.PlayerData;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.PacketDistributor;
 import top.theillusivec4.curios.api.SlotContext;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.leo.soulmancy.init.ModAttachmentTypes.PLAYER_DATA_ATTACHMENT;
 
@@ -50,4 +55,11 @@ public class SightItem extends BaseCuriosItem {
 
     @Override
     public void onCuriosTick(SlotContext slotContext) {}
+
+    @Override
+    public List<Component> detailedInfo(ItemStack stack) {
+        List<Component> toReturn = new ArrayList<>();
+        toReturn.add(Component.translatable(Soulmancy.MODID + ".item.sight." + (clearVision ? "pure": "impure")));
+        return toReturn;
+    }
 }

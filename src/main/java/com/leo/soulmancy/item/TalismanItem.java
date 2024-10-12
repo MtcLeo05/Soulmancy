@@ -3,8 +3,6 @@ package com.leo.soulmancy.item;
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.init.ModDataComponents;
 import com.leo.soulmancy.util.Utils;
-import net.minecraft.client.Screenshot;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -12,11 +10,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import oshi.util.tuples.Pair;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -31,33 +28,6 @@ public class TalismanItem extends BaseCuriosItem {
         this.effects = effects;
         this.soulConsumed = soulConsumed;
         this.chunkMultiplier = chunkMultiplier;
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-
-        if (!Screen.hasShiftDown()) {
-
-            tooltipComponents.add(Component.translatable(Soulmancy.MODID + ".item.moreInfo"));
-
-            return;
-        }
-
-
-        tooltipComponents.add(Component.translatable(Soulmancy.MODID + ".item.soulConsume", soulConsumed).withColor(0xFF9f00fe));
-        tooltipComponents.add(Component.translatable(Soulmancy.MODID + ".item.soulChunk", (int) (soulConsumed * chunkMultiplier)).withColor(0xFF3b005e));
-
-        tooltipComponents.add(Component.translatable(Soulmancy.MODID + ".item.talisman.effectList"));
-
-        effects.forEach((e, i) -> {
-            String effectName = Component.translatable("effect." + e.getKey().location().getNamespace() + "." + e.getKey().location().getPath()).getString();
-
-            tooltipComponents.add(Component.literal("- ").append(Component.translatable(Soulmancy.MODID + ".item.talisman.effect", effectName, i)));
-        });
-        return;
-
-
     }
 
     @Override
@@ -80,15 +50,15 @@ public class TalismanItem extends BaseCuriosItem {
         ItemStack stack = curios.get();
         if(stack.isEmpty()) return;
 
-        int cd = stack.getOrDefault(ModDataComponents.TALISMAN_COOLDOWN, 0);
+        int cd = stack.getOrDefault(ModDataComponents.EQUIPPABLE_COOLDOWN, 0);
         cd++;
-        stack.set(ModDataComponents.TALISMAN_COOLDOWN, cd);
+        stack.set(ModDataComponents.EQUIPPABLE_COOLDOWN, cd);
 
-        if(stack.getOrDefault(ModDataComponents.TALISMAN_COOLDOWN, 0) < 18) return;
-        stack.set(ModDataComponents.TALISMAN_COOLDOWN, 0);
+        if(stack.getOrDefault(ModDataComponents.EQUIPPABLE_COOLDOWN, 0) < 18) return;
+        stack.set(ModDataComponents.EQUIPPABLE_COOLDOWN, 0);
 
-        ItemStack soulContainerInPlayer = Utils.getSoulContainerInPlayer(sPlayer, soulConsumed)
-            ;
+        ItemStack soulContainerInPlayer = Utils.getSoulContainerInPlayer(sPlayer, soulConsumed);
+
         if(!soulContainerInPlayer.isEmpty()) {
             int soulInContainer = SoulContainer.getSoul(soulContainerInPlayer)[0];
 
@@ -103,6 +73,24 @@ public class TalismanItem extends BaseCuriosItem {
 
         applyEffects(sPlayer);
         Utils.removeSoulToChunk(sPlayer.blockPosition(), (int) (soulConsumed * chunkMultiplier), sLevel);
+    }
+
+    @Override
+    public List<Component> detailedInfo(ItemStack stack) {
+        List<Component> toReturn = new ArrayList<>();
+
+        toReturn.add(Component.translatable(Soulmancy.MODID + ".item.soulConsume", soulConsumed, 18).withColor(0xFF9f00fe));
+        toReturn.add(Component.translatable(Soulmancy.MODID + ".item.soulChunk", (int) (soulConsumed * chunkMultiplier)).withColor(0xFF3b005e));
+
+        toReturn.add(Component.translatable(Soulmancy.MODID + ".item.talisman.effectList"));
+
+        effects.forEach((e, i) -> {
+            String effectName = Component.translatable("effect." + e.getKey().location().getNamespace() + "." + e.getKey().location().getPath()).getString();
+
+            toReturn.add(Component.literal("- ").append(Component.translatable(Soulmancy.MODID + ".item.talisman.effect", effectName, i)));
+        });
+
+        return toReturn;
     }
 
     private void applyEffects(ServerPlayer player){

@@ -17,6 +17,7 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.CuriosCapability;
 import top.theillusivec4.curios.api.SlotContext;
@@ -32,6 +33,10 @@ public class ModBusEvents {
 
     @SubscribeEvent
     public static void registerCapabilities(RegisterCapabilitiesEvent event){
+        List<Item> curios = new ArrayList<>();
+        for (DeferredHolder<Item, ? extends Item> entry : ModItems.ITEMS.getEntries()) {
+            if(entry.get() instanceof BaseCuriosItem) curios.add(entry.get());
+        }
         event.registerItem(
             CuriosCapability.ITEM,
             (stack, context) ->
@@ -69,16 +74,7 @@ public class ModBusEvents {
                     bci.onCuriosTick(slotContext);
                 }
             },
-            ModItems.REVEALING_EYE.get(),
-            ModItems.SIGHT_LENS.get(),
-            ModItems.MINERS_TALISMAN1.get(),
-            ModItems.MINERS_TALISMAN2.get(),
-            ModItems.MINERS_TALISMAN3.get(),
-            ModItems.FIGHTERS_TALISMAN1.get(),
-            ModItems.FIGHTERS_TALISMAN2.get(),
-            ModItems.FIGHTERS_TALISMAN3.get(),
-            ModItems.RUNNERS_TALISMAN1.get(),
-            ModItems.RUNNERS_TALISMAN2.get()
+            curios.toArray(new Item[]{})
         );
 
         event.registerBlockEntity(

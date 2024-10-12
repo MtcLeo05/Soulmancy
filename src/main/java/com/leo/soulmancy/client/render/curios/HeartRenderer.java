@@ -9,12 +9,14 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import top.theillusivec4.curios.api.SlotContext;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 import top.theillusivec4.curios.api.client.ICurioRenderer;
 
-public class ArmBandRenderer implements ICurioRenderer {
+public class HeartRenderer implements ICurioRenderer {
     @Override
     public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack stack, SlotContext slotContext, PoseStack matrixStack, RenderLayerParent<T, M> renderLayerParent,
                                                                           MultiBufferSource renderTypeBuffer, int light, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks,
@@ -26,11 +28,15 @@ public class ArmBandRenderer implements ICurioRenderer {
         matrixStack.pushPose();
 
         matrixStack.mulPose(Axis.ZN.rotationDegrees(180));
-        matrixStack.translate(0, 0.35, 0.025);
+
+        matrixStack.scale(0.1f, 0.1f, 0.1f);
+        matrixStack.translate(1.5f, -2f, -1.5);
+
+        matrixStack.mulPose(Axis.YP.rotationDegrees(180));
 
         renderer.renderStatic(
             stack,
-            ItemDisplayContext.HEAD,
+            ItemDisplayContext.GUI,
             light,
             OverlayTexture.NO_OVERLAY,
             matrixStack,
@@ -41,5 +47,12 @@ public class ArmBandRenderer implements ICurioRenderer {
 
         matrixStack.popPose();
         matrixStack.popPose();
+    }
+
+    public static void registerItem(Item item){
+        CuriosRendererRegistry.register(
+            item,
+            HeartRenderer::new
+        );
     }
 }
