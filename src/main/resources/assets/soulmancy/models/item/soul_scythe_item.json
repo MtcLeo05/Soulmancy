@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "soulmancy:item/soul_scythe_item"
+    }
+}

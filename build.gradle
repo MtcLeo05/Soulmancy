@@ -44,7 +44,7 @@ neoForge {
 
         server {
             server()
-            programArgument '--nogui'
+
             systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
@@ -101,9 +101,8 @@ dependencies {
 
     implementation "curse.maven:terrablender-neoforge-940057:5685546"
     implementation "curse.maven:jei-238222:5779056"
-    implementation "curse.maven:curios-continuation-1037991:5765721"
-    implementation "curse.maven:curious-armor-stands-398784:5578731"
     implementation "curse.maven:patchouli-306770:5683901"
+    implementation "curse.maven:accessories-938917:5806725"
 
 }
 

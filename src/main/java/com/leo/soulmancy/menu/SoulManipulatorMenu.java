@@ -1,6 +1,5 @@
 package com.leo.soulmancy.menu;
 
-import com.leo.soulmancy.block.entity.BaseSoulInteractor;
 import com.leo.soulmancy.block.entity.SoulManipulatorBE;
 import com.leo.soulmancy.init.ModBlocks;
 import com.leo.soulmancy.init.ModMenuTypes;
@@ -19,7 +18,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class SoulManipulatorMenu extends AbstractContainerMenu {
     public final SoulManipulatorBE be;
-    private final Level level;
     private final ContainerData data;
     private final IItemHandler itemHandler;
 
@@ -27,7 +25,7 @@ public class SoulManipulatorMenu extends AbstractContainerMenu {
         super(ModMenuTypes.SOUL_MANIPULATOR.get(), containerId);
 
         this.be = ((SoulManipulatorBE) entity);
-        this.level = inv.player.level();
+        Level level = inv.player.level();
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);

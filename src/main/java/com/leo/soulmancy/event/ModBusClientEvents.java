@@ -2,12 +2,17 @@ package com.leo.soulmancy.event;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.client.gui.overlay.SoulMeterHUD;
+import com.leo.soulmancy.client.render.be.SoulCanalizerRenderer;
 import com.leo.soulmancy.client.render.be.SoulManipulatorRenderer;
-import com.leo.soulmancy.client.render.curios.EyeCoverRenderer;
+import com.leo.soulmancy.client.render.accessories.HeartRenderer;
+import com.leo.soulmancy.client.render.accessories.PendantRenderer;
+import com.leo.soulmancy.client.render.accessories.EyeCoverRenderer;
 import com.leo.soulmancy.client.screen.SoulManipulatorScreen;
+import com.leo.soulmancy.client.screen.SoulSmelteryScreen;
 import com.leo.soulmancy.init.*;
 import com.leo.soulmancy.item.SoulContainer;
 import com.leo.soulmancy.util.Utils;
+import io.wispforest.accessories.api.client.AccessoriesRendererRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.item.CompassItemPropertyFunction;
@@ -24,7 +29,6 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 @EventBusSubscriber(modid = Soulmancy.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModBusClientEvents {
@@ -75,10 +79,15 @@ public class ModBusClientEvents {
             ModBlockEntities.SOUL_MANIPULATOR.get(),
             SoulManipulatorRenderer::new
         );
+
+        event.registerBlockEntityRenderer(
+            ModBlockEntities.SOUL_CANALIZER.get(),
+            SoulCanalizerRenderer::new
+        );
     }
 
     @SubscribeEvent
-    public static void modClientSetup(FMLClientSetupEvent event){
+    public static void modClientSetup(FMLClientSetupEvent ignore){
         ItemProperties.register(
             ModItems.OCCULT_COMPASS.get(),
             ResourceLocation.withDefaultNamespace("angle"),
@@ -91,16 +100,27 @@ public class ModBusClientEvents {
                 return null;
             })
         );
+    }
 
-        CuriosRendererRegistry.register(
-            ModItems.REVEALING_EYE.get(),
-            EyeCoverRenderer::new
-        );
+    @SubscribeEvent
+    public static void registerCuriosRenderer(FMLClientSetupEvent ignore){
+        EyeCoverRenderer.registerItem(ModItems.REVEALING_EYE.get());
+        EyeCoverRenderer.registerItem(ModItems.SIGHT_LENS.get());
 
-        CuriosRendererRegistry.register(
-            ModItems.SIGHT_LENS.get(),
-            EyeCoverRenderer::new
-        );
+        PendantRenderer.registerItem(ModItems.MINERS_TALISMAN1.get());
+        PendantRenderer.registerItem(ModItems.MINERS_TALISMAN2.get());
+        PendantRenderer.registerItem(ModItems.MINERS_TALISMAN3.get());
+
+        PendantRenderer.registerItem(ModItems.FIGHTERS_TALISMAN1.get());
+        PendantRenderer.registerItem(ModItems.FIGHTERS_TALISMAN2.get());
+        PendantRenderer.registerItem(ModItems.FIGHTERS_TALISMAN3.get());
+
+        PendantRenderer.registerItem(ModItems.RUNNERS_TALISMAN1.get());
+        PendantRenderer.registerItem(ModItems.RUNNERS_TALISMAN2.get());
+
+        HeartRenderer.registerItem(ModItems.SUSTENANCE_CHARM.get());
+
+        AccessoriesRendererRegistry.registerArmorRendering(ModItems.SOULMANCERS_ROBE.get());
     }
 
     @SubscribeEvent
@@ -114,5 +134,6 @@ public class ModBusClientEvents {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event){
         event.register(ModMenuTypes.SOUL_MANIPULATOR.get(), SoulManipulatorScreen::new);
+        event.register(ModMenuTypes.SOUL_SMELTERY.get(), SoulSmelteryScreen::new);
     }
 }

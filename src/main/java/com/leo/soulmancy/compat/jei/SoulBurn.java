@@ -3,7 +3,7 @@ package com.leo.soulmancy.compat.jei;
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.init.ModBlocks;
 import com.leo.soulmancy.recipe.manipulator.SoulBurnRecipe;
-import com.leo.soulmancy.recipe.manipulator.SoulTransformRecipe;
+import com.leo.soulmancy.util.Utils;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -17,8 +17,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-
-import static com.leo.soulmancy.client.screen.SoulManipulatorScreen.isMouseHovering;
 
 public class SoulBurn implements IRecipeCategory<SoulBurnRecipe> {
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "soul_burn");
@@ -98,7 +96,7 @@ public class SoulBurn implements IRecipeCategory<SoulBurnRecipe> {
             256
         );
 
-        if (isMouseHovering(55, 26, 32, 10, mouseX, mouseY)) {
+        if (Utils.isMouseHovering(55, 26, 32, 10, mouseX, mouseY)) {
             guiGraphics.renderTooltip(
                 Minecraft.getInstance().font,
                 Component.translatable(Soulmancy.MODID + ".jei.duration", recipe.getDuration()),
@@ -107,7 +105,7 @@ public class SoulBurn implements IRecipeCategory<SoulBurnRecipe> {
             );
         }
 
-        if (isMouseHovering(126, 7, 9, 43, mouseX, mouseY)) {
+        if (Utils.isMouseHovering(126, 7, 9, 43, mouseX, mouseY)) {
             guiGraphics.renderTooltip(
                 Minecraft.getInstance().font,
                 Component.translatable(Soulmancy.MODID + ".jei.produceSoul", recipe.getSoul()),

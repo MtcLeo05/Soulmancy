@@ -3,6 +3,7 @@ package com.leo.soulmancy.datagen;
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.init.ModBlocks;
 import com.leo.soulmancy.init.ModItems;
+import com.leo.soulmancy.item.TalismanItem;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -11,13 +12,18 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
 
     public static final TagKey<Item> FAUX_ONYX = createTag("faux_onyx");
-    public static final TagKey<Item> EYE_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", "eye"));
+    public static final TagKey<Item> EYE_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("accessories", "eye"));
+    public static final TagKey<Item> TALISMAN_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("accessories", "talisman"));
+    public static final TagKey<Item> CHARM_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("accessories", "charm"));
+    public static final TagKey<Item> BACK_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("accessories", "back"));
 
     public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags) {
         super(output, lookupProvider, blockTags);
@@ -37,6 +43,68 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .add(
                 ModItems.REVEALING_EYE.get(),
                 ModItems.SIGHT_LENS.get()
+            );
+
+        this.tag(TALISMAN_CURIOS)
+            .add(
+                ModItems.MINERS_TALISMAN1.get(),
+                ModItems.MINERS_TALISMAN2.get(),
+                ModItems.MINERS_TALISMAN3.get(),
+                ModItems.FIGHTERS_TALISMAN1.get(),
+                ModItems.FIGHTERS_TALISMAN2.get(),
+                ModItems.FIGHTERS_TALISMAN3.get(),
+                ModItems.RUNNERS_TALISMAN1.get(),
+                ModItems.RUNNERS_TALISMAN2.get()
+            );
+
+        this.tag(CHARM_CURIOS)
+            .add(
+                ModItems.SUSTENANCE_CHARM.get()
+            );
+
+        this.tag(BACK_CURIOS)
+            .add(
+                ModItems.SOULMANCERS_ROBE.get()
+            );
+
+        this.tag(ItemTags.WEAPON_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(ItemTags.SWORD_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(ItemTags.VANISHING_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(Tags.Items.MELEE_WEAPON_TOOLS)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(Tags.Items.ENCHANTABLES)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(ItemTags.FIRE_ASPECT_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
+            );
+
+        this.tag(ItemTags.DURABILITY_ENCHANTABLE)
+            .add(
+                ModItems.SOUL_SCYTHE.get()
             );
     }
 

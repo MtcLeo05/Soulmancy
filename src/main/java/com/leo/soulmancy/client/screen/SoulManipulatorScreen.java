@@ -2,6 +2,7 @@ package com.leo.soulmancy.client.screen;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.menu.SoulManipulatorMenu;
+import com.leo.soulmancy.util.Utils;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -109,7 +110,7 @@ public class SoulManipulatorScreen extends AbstractContainerScreen<SoulManipulat
     protected void renderTooltip(GuiGraphics guiGraphics, int x, int y) {
         super.renderTooltip(guiGraphics, x, y);
 
-        if(!isMouseHovering(leftPos + 159,  topPos + 8, 9, 73, x, y)) return;
+        if(!Utils.isMouseHovering(leftPos + 159, topPos + 8, 9, 73, x, y)) return;
 
         int soul = menu.getData().get(1), maxSoul = menu.getData().get(2);
 
@@ -119,9 +120,5 @@ public class SoulManipulatorScreen extends AbstractContainerScreen<SoulManipulat
             x,
             y
         );
-    }
-
-    public static boolean isMouseHovering(int x, int y, int width, int height, double mouseX, double mouseY) {
-        return mouseX >= x && mouseY >= y && mouseX < x + width && mouseY < y + height;
     }
 }

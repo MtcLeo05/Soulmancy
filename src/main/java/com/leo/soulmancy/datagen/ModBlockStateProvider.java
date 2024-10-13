@@ -1,13 +1,17 @@
 package com.leo.soulmancy.datagen;
 
 import com.leo.soulmancy.Soulmancy;
+import com.leo.soulmancy.block.SoulSmelteryBlock;
 import com.leo.soulmancy.init.ModBlocks;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -65,9 +69,33 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.DEEPSLATE_ONYX_ORE.get(), cubeAll(ModBlocks.DEEPSLATE_ONYX_ORE.get()));
         simpleBlock(ModBlocks.SOUL_STONE.get(), model(ModBlocks.SOUL_STONE));
         simpleBlock(ModBlocks.CONDENSED_SOUL.get(), cubeAll(ModBlocks.CONDENSED_SOUL.get()));
+        simpleBlock(ModBlocks.SOUL_CANALIZER.get(), model(ModBlocks.SOUL_CANALIZER));
 
         doorBlock(ModBlocks.EBONY_DOOR.get(), modLoc("block/ebony_door_bottom"), modLoc("block/ebony_door_top"));
         trapdoorBlockWithRenderType(ModBlocks.EBONY_TRAPDOOR.get(), modLoc("block/ebony_trapdoor"), true, "cutout");
+
+        soulSmeltery();
+    }
+
+    private void soulSmeltery(){
+        this.getVariantBuilder(ModBlocks.SOUL_SMELTERY.get()).forAllStates(
+            (state) -> {
+                boolean isLit = state.getValue(SoulSmelteryBlock.LIT);
+
+                StringBuilder path = new StringBuilder("block/");
+
+                path.append("soul_smeltery");
+
+                if(isLit) path.append("_on");
+
+                ResourceLocation model = ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, path.toString());
+
+                return ConfiguredModel.builder()
+                    .modelFile(model(model))
+                    .rotationY(((int) state.getValue(SoulSmelteryBlock.FACING).toYRot()) % 360)
+                    .build();
+            }
+        );
     }
 
     private void saplingBlock(DeferredHolder<Block, ? extends Block> block){

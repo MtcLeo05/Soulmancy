@@ -1,0 +1,7 @@
+{
+    "replace": false,
+    "entities": [
+        "#accessories:defaulted_targets"
+    ],
+    "slots": ["eye", "talisman", "charm", "back"]
+}

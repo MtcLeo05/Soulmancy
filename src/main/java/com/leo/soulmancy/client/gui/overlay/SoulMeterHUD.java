@@ -80,7 +80,7 @@ public class SoulMeterHUD implements LayeredDraw.Layer {
             Minecraft.getInstance().font,
             soulData.soulValue() + "/" + soulData.maxSoulValue(),
             mainX + 28,
-            mainY + 135,
+            mainY + 170,
             0xFFffb3ff
         );
         guiGraphics.pose().popPose();
