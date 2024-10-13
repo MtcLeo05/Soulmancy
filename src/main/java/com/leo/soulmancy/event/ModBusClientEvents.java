@@ -4,14 +4,15 @@ import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.client.gui.overlay.SoulMeterHUD;
 import com.leo.soulmancy.client.render.be.SoulCanalizerRenderer;
 import com.leo.soulmancy.client.render.be.SoulManipulatorRenderer;
-import com.leo.soulmancy.client.render.curios.HeartRenderer;
-import com.leo.soulmancy.client.render.curios.PendantRenderer;
-import com.leo.soulmancy.client.render.curios.EyeCoverRenderer;
+import com.leo.soulmancy.client.render.accessories.HeartRenderer;
+import com.leo.soulmancy.client.render.accessories.PendantRenderer;
+import com.leo.soulmancy.client.render.accessories.EyeCoverRenderer;
 import com.leo.soulmancy.client.screen.SoulManipulatorScreen;
 import com.leo.soulmancy.client.screen.SoulSmelteryScreen;
 import com.leo.soulmancy.init.*;
 import com.leo.soulmancy.item.SoulContainer;
 import com.leo.soulmancy.util.Utils;
+import io.wispforest.accessories.api.client.AccessoriesRendererRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.item.CompassItemPropertyFunction;
@@ -28,7 +29,6 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 @EventBusSubscriber(modid = Soulmancy.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModBusClientEvents {
@@ -119,6 +119,8 @@ public class ModBusClientEvents {
         PendantRenderer.registerItem(ModItems.RUNNERS_TALISMAN2.get());
 
         HeartRenderer.registerItem(ModItems.SUSTENANCE_CHARM.get());
+
+        AccessoriesRendererRegistry.registerArmorRendering(ModItems.SOULMANCERS_ROBE.get());
     }
 
     @SubscribeEvent

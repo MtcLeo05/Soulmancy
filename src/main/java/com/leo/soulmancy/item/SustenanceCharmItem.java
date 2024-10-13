@@ -2,12 +2,9 @@ package com.leo.soulmancy.item;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.init.ModDataComponents;
-import com.leo.soulmancy.util.Utils;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -15,63 +12,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import top.theillusivec4.curios.api.CuriosApi;
-import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
-public class SustenanceCharmItem extends Item implements BaseCurios {
+public class SustenanceCharmItem extends Item implements BaseAccessory {
     public SustenanceCharmItem(Properties properties) {
         super(properties);
-    }
-
-    @Override
-    public void onCuriosEquip(SlotContext slotContext, ItemStack prevStack) {}
-
-    @Override
-    public void onCuriosUnequip(SlotContext slotContext, ItemStack newStack) {}
-
-    @Override
-    public void onCuriosTick(SlotContext slotContext) {
-        if(slotContext.cosmetic()) return;
-        if(!(slotContext.entity() instanceof ServerPlayer sPlayer)) return;
-
-        ServerLevel sLevel = sPlayer.serverLevel();
-        AtomicReference<ItemStack> curios = new AtomicReference<>(ItemStack.EMPTY);
-        CuriosApi.getCuriosInventory(sPlayer).ifPresent(i -> {
-            i.findCurio(slotContext.identifier(), slotContext.index()).ifPresent(c -> curios.set(c.stack()));
-        });
-
-        ItemStack stack = curios.get();
-        if(stack.isEmpty()) return;
-
-        int cd = stack.getOrDefault(ModDataComponents.EQUIPPABLE_COOLDOWN, 0);
-        cd++;
-        stack.set(ModDataComponents.EQUIPPABLE_COOLDOWN, cd);
-
-        if(!sPlayer.getFoodData().needsFood()) return;
-
-        if(stack.getOrDefault(ModDataComponents.EQUIPPABLE_COOLDOWN, 0) < (isFastMode(stack) ? 5: 20)) return;
-        stack.set(ModDataComponents.EQUIPPABLE_COOLDOWN, 0);
-
-        ItemStack soulContainerInPlayer = Utils.getSoulContainerInPlayer(sPlayer, getConsume(stack));
-
-        if(!soulContainerInPlayer.isEmpty()) {
-            int soulInContainer = SoulContainer.getSoul(soulContainerInPlayer)[0];
-
-            if(soulInContainer >= getConsume(stack)) {
-                SoulContainer.removeSoul(soulContainerInPlayer, getConsume(stack));
-                sPlayer.getFoodData().eat(1, 1);
-            }
-            return;
-        }
-
-        if(Utils.getSoulInChunk(sPlayer.blockPosition(), sLevel) < getConsume(stack) * 4) return;
-
-        Utils.removeSoulToChunk(sPlayer.blockPosition(), getConsume(stack) * 4, sLevel);
-        sPlayer.getFoodData().eat(1, 1);
     }
 
     @Override
@@ -100,11 +47,11 @@ public class SustenanceCharmItem extends Item implements BaseCurios {
         return toReturn;
     }
 
-    private int getConsume(ItemStack stack){
+    public static int getConsume(ItemStack stack){
         return isFastMode(stack) ? 4: 1;
     }
 
-    private boolean isFastMode(ItemStack stack) {
+    public static boolean isFastMode(ItemStack stack) {
         return stack.getOrDefault(ModDataComponents.GENERIC_MODE, false);
     }
 

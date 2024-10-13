@@ -1,27 +1,19 @@
 package com.leo.soulmancy.item;
 
 import com.leo.soulmancy.Soulmancy;
-import com.leo.soulmancy.init.ModDataComponents;
-import com.leo.soulmancy.util.Utils;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import top.theillusivec4.curios.api.CuriosApi;
-import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
 
-public class TalismanItem extends Item implements BaseCurios {
+public class TalismanItem extends Item implements BaseAccessory {
     private final Map<Holder<MobEffect>, Integer> effects;
     private final int soulConsumed;
     private final float chunkMultiplier;
@@ -33,49 +25,9 @@ public class TalismanItem extends Item implements BaseCurios {
         this.chunkMultiplier = chunkMultiplier;
     }
 
-    @Override
-    public void onCuriosEquip(SlotContext slotContext, ItemStack prevStack) {}
-
-    @Override
-    public void onCuriosUnequip(SlotContext slotContext, ItemStack newStack) {}
-
-    @Override
-    public void onCuriosTick(SlotContext slotContext) {
-        if(slotContext.cosmetic()) return;
-        if(!(slotContext.entity() instanceof ServerPlayer sPlayer)) return;
-
-        ServerLevel sLevel = sPlayer.serverLevel();
-        AtomicReference<ItemStack> curios = new AtomicReference<>(ItemStack.EMPTY);
-        CuriosApi.getCuriosInventory(sPlayer).ifPresent(i -> {
-            i.findCurio(slotContext.identifier(), slotContext.index()).ifPresent(c -> curios.set(c.stack()));
-        });
-
-        ItemStack stack = curios.get();
-        if(stack.isEmpty()) return;
-
-        int cd = stack.getOrDefault(ModDataComponents.EQUIPPABLE_COOLDOWN, 0);
-        cd++;
-        stack.set(ModDataComponents.EQUIPPABLE_COOLDOWN, cd);
-
-        if(stack.getOrDefault(ModDataComponents.EQUIPPABLE_COOLDOWN, 0) < 18) return;
-        stack.set(ModDataComponents.EQUIPPABLE_COOLDOWN, 0);
-
-        ItemStack soulContainerInPlayer = Utils.getSoulContainerInPlayer(sPlayer, soulConsumed);
-
-        if(!soulContainerInPlayer.isEmpty()) {
-            int soulInContainer = SoulContainer.getSoul(soulContainerInPlayer)[0];
-
-            if(soulInContainer >= soulConsumed) {
-                SoulContainer.removeSoul(soulContainerInPlayer, soulConsumed);
-                applyEffects(sPlayer);
-            }
-            return;
-        }
-
-        if(Utils.getSoulInChunk(sPlayer.blockPosition(), sLevel) < (soulConsumed* chunkMultiplier)) return;
-
-        applyEffects(sPlayer);
-        Utils.removeSoulToChunk(sPlayer.blockPosition(), (int) (soulConsumed * chunkMultiplier), sLevel);
+    //I'm lazy
+    public Object[] getDetails(){
+        return new Object[]{effects, soulConsumed, chunkMultiplier};
     }
 
     @Override
@@ -94,18 +46,6 @@ public class TalismanItem extends Item implements BaseCurios {
         });
 
         return toReturn;
-    }
-
-    private void applyEffects(ServerPlayer player){
-        effects.forEach((effect, level) -> {
-            player.addEffect(
-                new MobEffectInstance(
-                    effect,
-                    20,
-                    level
-                )
-            );
-        });
     }
 
     @Override

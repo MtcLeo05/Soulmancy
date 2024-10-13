@@ -100,8 +100,8 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(Soulmancy.MODID + ".jei.produceSoul", "Soul Produced: %d");
         this.add(Soulmancy.MODID + ".jei.vesselIncrease", "Vessel Increase: %d");
 
-        this.add("curios.identifier.eye", "Eye Slot");
-        this.add("curios.identifier.talisman", "Talisman Slot");
+        this.add("accessories.slot.eye", "Eye Slot");
+        this.add("accessories.slot.talisman", "Talisman Slot");
 
         this.add("enchantment." + Soulmancy.MODID + ".soul_reaping", "Soul Reaping");
         this.add("enchantment." + Soulmancy.MODID + ".soul_reaping.desc", "Converts killed entities' max HP to soul usable in recipes");
