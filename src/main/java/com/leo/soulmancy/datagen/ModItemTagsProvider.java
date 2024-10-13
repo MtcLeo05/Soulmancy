@@ -20,10 +20,10 @@ import java.util.concurrent.CompletableFuture;
 public class ModItemTagsProvider extends ItemTagsProvider {
 
     public static final TagKey<Item> FAUX_ONYX = createTag("faux_onyx");
-    public static final TagKey<Item> EYE_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", "eye"));
-    public static final TagKey<Item> TALISMAN_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", "talisman"));
-    public static final TagKey<Item> CHARM_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", "charm"));
-    public static final TagKey<Item> BACK_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", "back"));
+    public static final TagKey<Item> EYE_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("accessories", "eye"));
+    public static final TagKey<Item> TALISMAN_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("accessories", "talisman"));
+    public static final TagKey<Item> CHARM_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("accessories", "charm"));
+    public static final TagKey<Item> BACK_CURIOS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("accessories", "back"));
 
     public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags) {
         super(output, lookupProvider, blockTags);
