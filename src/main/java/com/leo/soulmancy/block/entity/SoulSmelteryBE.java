@@ -2,7 +2,8 @@ package com.leo.soulmancy.block.entity;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.block.SoulSmelteryBlock;
-import com.leo.soulmancy.config.ServerConfig;
+import com.leo.soulmancy.config.MachineryConfigs;
+import com.leo.soulmancy.config.SoulConfigs;
 import com.leo.soulmancy.init.ModBlockEntities;
 import com.leo.soulmancy.menu.SoulSmelteryMenu;
 import com.leo.soulmancy.util.Utils;
@@ -69,7 +70,7 @@ public class SoulSmelteryBE extends BaseSoulInteractorMenuProvider {
 
     @Override
     protected int getRecipeDuration() {
-        return getRecipe() != null? (int) (getRecipe().getCookingTime() * ServerConfig.soulFurnaceSpeed): 40;
+        return getRecipe() != null? (int) (getRecipe().getCookingTime() * MachineryConfigs.SOUL_FURNACE_SPEED.get()): 40;
     }
 
     @Override
@@ -82,7 +83,7 @@ public class SoulSmelteryBE extends BaseSoulInteractorMenuProvider {
 
         if(--remainingFuel <= 0) {
             remainingFuel = 202;
-            removeSoulToChunk(ServerConfig.soulFurnaceConsume);
+            removeSoulToChunk(MachineryConfigs.SOUL_FURNACE_CONSUME.get());
         }
 
         if(++progress < getRecipeDuration()) return;

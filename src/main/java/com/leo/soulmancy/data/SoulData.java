@@ -2,7 +2,7 @@ package com.leo.soulmancy.data;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.client.ModClientData;
-import com.leo.soulmancy.config.ServerConfig;
+import com.leo.soulmancy.config.SoulConfigs;
 import com.leo.soulmancy.util.ConfigUtils;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -18,8 +18,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
-
-import java.util.Objects;
 
 import static com.leo.soulmancy.init.ModAttachmentTypes.SOUL_DATA_ATTACHMENT;
 
@@ -53,7 +51,7 @@ public record SoulData(int soulValue, int maxSoulValue) implements CustomPacketP
         RandomSource random = level.getRandom();
         SoulData data = null;
 
-        for (ConfigUtils.BiomeSoulConfig biomeConfig : ServerConfig.biomeConfigs) {
+        for (ConfigUtils.BiomeSoulConfig biomeConfig : SoulConfigs.getBiomeConfigs()) {
             if(!biomeConfig.biome.equals(biome)) continue;
 
             int soul = biomeConfig.dataForBiome.soulValue();

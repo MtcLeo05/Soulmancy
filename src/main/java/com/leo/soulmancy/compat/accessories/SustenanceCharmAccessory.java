@@ -1,5 +1,6 @@
 package com.leo.soulmancy.compat.accessories;
 
+import com.leo.soulmancy.config.AccessoriesConfigs;
 import com.leo.soulmancy.init.ModDataComponents;
 import com.leo.soulmancy.init.ModItems;
 import com.leo.soulmancy.item.SoulContainer;
@@ -30,25 +31,29 @@ public class SustenanceCharmAccessory implements Accessory {
 
         if(!sPlayer.getFoodData().needsFood()) return;
 
-        if(stack.getOrDefault(ModDataComponents.EQUIPPABLE_COOLDOWN, 0) < (SustenanceCharmItem.isFastMode(stack) ? 5: 20)) return;
+        if(stack.getOrDefault(ModDataComponents.EQUIPPABLE_COOLDOWN, 0) < SustenanceCharmItem.getCooldown(stack)) return;
         stack.set(ModDataComponents.EQUIPPABLE_COOLDOWN, 0);
 
-        ItemStack soulContainerInPlayer = Utils.getSoulContainerInPlayer(sPlayer, SustenanceCharmItem.getConsume(stack));
+        int soul = SustenanceCharmItem.getConsume(stack);
+
+        ItemStack soulContainerInPlayer = Utils.getSoulContainerInPlayer(sPlayer, soul);
+
+        int food = AccessoriesConfigs.SUSTENANCE_FOOD.get(), saturation = AccessoriesConfigs.SUSTENANCE_SATURATION.get();
 
         if(!soulContainerInPlayer.isEmpty()) {
             int soulInContainer = SoulContainer.getSoul(soulContainerInPlayer)[0];
 
-            if(soulInContainer >= SustenanceCharmItem.getConsume(stack)) {
-                SoulContainer.removeSoul(soulContainerInPlayer, SustenanceCharmItem.getConsume(stack));
-                sPlayer.getFoodData().eat(1, 1);
+            if(soulInContainer >= soul) {
+                SoulContainer.removeSoul(soulContainerInPlayer, soul);
+                sPlayer.getFoodData().eat(food, saturation);
             }
             return;
         }
 
-        if(Utils.getSoulInChunk(sPlayer.blockPosition(), sLevel) < SustenanceCharmItem.getConsume(stack) * 4) return;
+        if(Utils.getSoulInChunk(sPlayer.blockPosition(), sLevel) < soul * 4) return;
 
-        Utils.removeSoulToChunk(sPlayer.blockPosition(), SustenanceCharmItem.getConsume(stack) * 4, sLevel);
-        sPlayer.getFoodData().eat(1, 1);
+        Utils.removeSoulToChunk(sPlayer.blockPosition(), soul * 4, sLevel);
+        sPlayer.getFoodData().eat(food, saturation);
     }
 
 }

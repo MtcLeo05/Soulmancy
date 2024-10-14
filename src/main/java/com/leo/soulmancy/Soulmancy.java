@@ -1,7 +1,8 @@
 package com.leo.soulmancy;
 
-import com.leo.soulmancy.config.ServerConfig;
-import com.leo.soulmancy.datagen.ModEnchantments;
+import com.leo.soulmancy.config.AccessoriesConfigs;
+import com.leo.soulmancy.config.SoulConfigs;
+import com.leo.soulmancy.config.MachineryConfigs;
 import com.leo.soulmancy.init.*;
 import com.leo.soulmancy.worldgen.biome.ModTerrablender;
 import com.mojang.logging.LogUtils;
@@ -39,6 +40,8 @@ public class Soulmancy {
         ModRecipes.RECIPE_TYPES.register(modEventBus);
         ModRecipes.RECIPE_SERIALIZERS.register(modEventBus);
 
-        modContainer.registerConfig(ModConfig.Type.SERVER, ServerConfig.SPEC);
+        modContainer.registerConfig(ModConfig.Type.SERVER, AccessoriesConfigs.SPEC, "soulmancy/accessories-configs.toml");
+        modContainer.registerConfig(ModConfig.Type.SERVER, MachineryConfigs.SPEC, "soulmancy/machinery-configs.toml");
+        modContainer.registerConfig(ModConfig.Type.SERVER, SoulConfigs.SPEC, "soulmancy/soul-configs.toml");
     }
 }
