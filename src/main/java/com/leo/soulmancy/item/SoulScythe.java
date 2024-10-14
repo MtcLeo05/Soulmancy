@@ -1,7 +1,7 @@
 package com.leo.soulmancy.item;
 
 import com.leo.soulmancy.Soulmancy;
-import com.leo.soulmancy.config.ServerConfig;
+import com.leo.soulmancy.config.SoulConfigs;
 import com.leo.soulmancy.util.Utils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -25,13 +25,13 @@ public class SoulScythe extends SwordItem {
         if(!entity.isDeadOrDying()) return super.hurtEnemy(stack, entity, attacker);
 
         if(entity instanceof ServerPlayer sPlayer) {
-            double vessel = sPlayer.getMaxHealth() + (sPlayer.getMaxHealth() * ServerConfig.vesselFromKill / 100);
+            double vessel = sPlayer.getMaxHealth() + (sPlayer.getMaxHealth() * SoulConfigs.VESSEL_FROM_KILL.get() / 100);
 
             Utils.addVesselToChunk(entity.blockPosition(), (int) vessel, sPlayer.serverLevel());
             return true;
         }
 
-        double soul = entity.getMaxHealth() + (entity.getMaxHealth() * ServerConfig.soulFromKill / 100);
+        double soul = entity.getMaxHealth() + (entity.getMaxHealth() * SoulConfigs.SOUL_FROM_KILL.get() / 100);
 
         Utils.addSoulToChunk(entity.blockPosition(), (int) soul, entity.level());
         return true;
