@@ -26,6 +26,12 @@ public class ModItems {
         )
     );
 
+    public static final DeferredHolder<Item, Item> CRYSTALLIZED_SOUL = ITEMS.register("crystallized_soul",
+        () -> new Item(
+            new Item.Properties()
+        )
+    );
+
     public static final DeferredHolder<Item, Item> OCCULT_COMPASS = ITEMS.register("occult_compass",
         () -> new OccultCompass(
             new Item.Properties()

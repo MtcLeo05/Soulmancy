@@ -30,7 +30,7 @@ public class ModArmorMaterials {
             }),
             15,
             SoundEvents.ARMOR_EQUIP_GENERIC,
-            () -> Ingredient.of(ModBlocks.CONDENSED_SOUL.get()),
+            () -> Ingredient.of(ModItems.CRYSTALLIZED_SOUL.get()),
             List.of(
                 new ArmorMaterial.Layer(
                     ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "soulmancers_robe")

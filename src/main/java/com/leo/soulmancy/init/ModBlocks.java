@@ -252,6 +252,28 @@ public class ModBlocks {
         )
     );
 
+    public static DeferredHolder<Block, Block> ARTIFICIAL_ONYX_BLOCK = registerBlock("artificial_onyx_block",
+        () -> new Block(
+            BlockBehaviour.Properties.of()
+                .mapColor(MapColor.COLOR_BLACK)
+                .sound(SoundType.ANCIENT_DEBRIS)
+                .strength(6f)
+                .requiresCorrectToolForDrops()
+        )
+    );
+
+    public static DeferredHolder<Block, Block> ONYX_BLOCK = registerBlock("onyx_block",
+        () -> new Block(
+            BlockBehaviour.Properties.of()
+                .mapColor(MapColor.COLOR_BLACK)
+                .sound(SoundType.ANCIENT_DEBRIS)
+                .strength(6f)
+                .requiresCorrectToolForDrops()
+        )
+    );
+
+
+
     public static DeferredHolder<Block, SoulManipulatorBlock> SOUL_MANIPULATOR = registerBlock("soul_manipulator",
         () -> new SoulManipulatorBlock(
             BlockBehaviour.Properties.of()
