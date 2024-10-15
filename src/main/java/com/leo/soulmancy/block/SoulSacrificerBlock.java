@@ -1,6 +1,6 @@
 package com.leo.soulmancy.block;
 
-import com.leo.soulmancy.block.entity.SoulCanalizerBE;
+import com.leo.soulmancy.block.entity.SoulSacrificerBE;
 import com.leo.soulmancy.util.ShapeUtil;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -20,29 +20,32 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class SoulCanalizerBlock extends BaseEntityBlock {
-    public SoulCanalizerBlock(Properties properties) {
+public class SoulSacrificerBlock extends BaseEntityBlock {
+    public SoulSacrificerBlock(Properties properties) {
         super(properties);
     }
 
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
-        return simpleCodec(SoulCanalizerBlock::new);
+        return simpleCodec(SoulSacrificerBlock::new);
     }
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if(level.getBlockEntity(pos) != null) {
-            ((SoulCanalizerBE) level.getBlockEntity(pos)).toggleShowRange();
+            if(player.isCrouching()) {
+                ((SoulSacrificerBE) level.getBlockEntity(pos)).toggleMode();
+            } else {
+                ((SoulSacrificerBE) level.getBlockEntity(pos)).toggleShowRange();
+            }
         }
-
         return super.useWithoutItem(state, level, pos, player, hitResult);
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new SoulCanalizerBE(blockPos, blockState);
+        return new SoulSacrificerBE(blockPos, blockState);
     }
 
     @Override
@@ -55,11 +58,11 @@ public class SoulCanalizerBlock extends BaseEntityBlock {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
         if(level.isClientSide) return null;
 
-        return (SoulCanalizerBlock::tick);
+        return (SoulSacrificerBlock::tick);
     }
 
     private static <T extends BlockEntity> void tick(Level level, BlockPos blockPos, BlockState blockState, T t) {
-        ((SoulCanalizerBE) t).tick(level);
+        ((SoulSacrificerBE) t).tick(level);
     }
 
     @Override

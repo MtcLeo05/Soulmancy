@@ -29,7 +29,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.ONYX_BLOCK.get(),
                 ModBlocks.SOUL_MANIPULATOR.get(),
                 ModBlocks.SOUL_SMELTERY.get(),
-                ModBlocks.SOUL_CANALIZER.get()
+                ModBlocks.SOUL_CANALIZER.get(),
+                ModBlocks.SOUL_SACRIFICER.get()
             );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
@@ -41,7 +42,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.DEEPSLATE_ONYX_ORE.get(),
                 ModBlocks.SOUL_MANIPULATOR.get(),
                 ModBlocks.SOUL_SMELTERY.get(),
-                ModBlocks.SOUL_CANALIZER.get()
+                ModBlocks.SOUL_CANALIZER.get(),
+                ModBlocks.SOUL_SACRIFICER.get()
             );
 
         this.tag(BlockTags.LOGS)

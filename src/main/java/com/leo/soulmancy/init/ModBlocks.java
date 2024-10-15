@@ -272,8 +272,6 @@ public class ModBlocks {
         )
     );
 
-
-
     public static DeferredHolder<Block, SoulManipulatorBlock> SOUL_MANIPULATOR = registerBlock("soul_manipulator",
         () -> new SoulManipulatorBlock(
             BlockBehaviour.Properties.of()
@@ -296,6 +294,16 @@ public class ModBlocks {
 
     public static DeferredHolder<Block, SoulCanalizerBlock> SOUL_CANALIZER = registerBlock("soul_canalizer",
         () -> new SoulCanalizerBlock(
+            BlockBehaviour.Properties.of()
+                .mapColor(MapColor.DEEPSLATE)
+                .sound(SoundType.DEEPSLATE)
+                .strength(3f)
+                .requiresCorrectToolForDrops()
+        )
+    );
+
+    public static DeferredHolder<Block, SoulSacrificerBlock> SOUL_SACRIFICER = registerBlock("soul_sacrificer",
+        () -> new SoulSacrificerBlock(
             BlockBehaviour.Properties.of()
                 .mapColor(MapColor.DEEPSLATE)
                 .sound(SoundType.DEEPSLATE)

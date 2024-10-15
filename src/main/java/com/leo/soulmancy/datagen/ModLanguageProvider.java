@@ -44,6 +44,7 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(ModBlocks.SOUL_MANIPULATOR.get(), "Soul Manipulator");
         this.add(ModBlocks.SOUL_SMELTERY.get(), "Soul Smeltery");
         this.add(ModBlocks.SOUL_CANALIZER.get(), "Soul Canalizer");
+        this.add(ModBlocks.SOUL_SACRIFICER.get(), "Soul Sacrificer");
 
         this.add(ModBlocks.ONYX_ORE.get(), "Onyx Ore");
         this.add(ModBlocks.DEEPSLATE_ONYX_ORE.get(), "Deepslate Onyx Ore");
