@@ -24,6 +24,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.ONYX);
         simpleItem(ModItems.ARTIFICIAL_ONYX);
+        simpleItem(ModItems.CRYSTALLIZED_SOUL);
         simpleItem(ModItems.REVEALING_EYE);
         simpleItem(ModItems.SIGHT_LENS);
 

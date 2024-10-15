@@ -3,13 +3,11 @@ package com.leo.soulmancy.datagen;
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.block.SoulSmelteryBlock;
 import com.leo.soulmancy.init.ModBlocks;
-import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
@@ -69,7 +67,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.DEEPSLATE_ONYX_ORE.get(), cubeAll(ModBlocks.DEEPSLATE_ONYX_ORE.get()));
         simpleBlock(ModBlocks.SOUL_STONE.get(), model(ModBlocks.SOUL_STONE));
         simpleBlock(ModBlocks.CONDENSED_SOUL.get(), cubeAll(ModBlocks.CONDENSED_SOUL.get()));
+
+        simpleBlock(ModBlocks.ARTIFICIAL_ONYX_BLOCK.get(), cubeAll(ModBlocks.ARTIFICIAL_ONYX_BLOCK.get()));
+        simpleBlock(ModBlocks.ONYX_BLOCK.get(), cubeAll(ModBlocks.ONYX_BLOCK.get()));
+
         simpleBlock(ModBlocks.SOUL_CANALIZER.get(), model(ModBlocks.SOUL_CANALIZER));
+        simpleBlock(ModBlocks.SOUL_SACRIFICER.get(), model(ModBlocks.SOUL_SACRIFICER));
 
         doorBlock(ModBlocks.EBONY_DOOR.get(), modLoc("block/ebony_door_bottom"), modLoc("block/ebony_door_top"));
         trapdoorBlockWithRenderType(ModBlocks.EBONY_TRAPDOOR.get(), modLoc("block/ebony_trapdoor"), true, "cutout");

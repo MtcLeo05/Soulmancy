@@ -1,7 +1,6 @@
 package com.leo.soulmancy.block.entity;
 
 import com.leo.soulmancy.config.MachineryConfigs;
-import com.leo.soulmancy.config.SoulConfigs;
 import com.leo.soulmancy.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -15,7 +14,7 @@ public class SoulCanalizerBE extends BaseSoulInteractor{
 
     private boolean showRange = false;
 
-    private int x = 0, y = 0,z = 0;
+    private int x = 0, y = 0, z = 0;
 
     public SoulCanalizerBE(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.SOUL_CANALIZER.get(), pos, blockState);
