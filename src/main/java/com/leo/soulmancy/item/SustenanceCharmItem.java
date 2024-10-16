@@ -1,6 +1,7 @@
 package com.leo.soulmancy.item;
 
 import com.leo.soulmancy.Soulmancy;
+import com.leo.soulmancy.config.AccessoriesConfigs;
 import com.leo.soulmancy.init.ModDataComponents;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.component.DataComponents;
@@ -48,7 +49,11 @@ public class SustenanceCharmItem extends Item implements BaseAccessory {
     }
 
     public static int getConsume(ItemStack stack){
-        return isFastMode(stack) ? 4: 1;
+        return isFastMode(stack) ? AccessoriesConfigs.SUSTENANCE_FAST_CONSUME.get() : AccessoriesConfigs.SUSTENANCE_SLOW_CONSUME.get();
+    }
+
+    public static int getCooldown(ItemStack stack){
+        return isFastMode(stack)? AccessoriesConfigs.SUSTENANCE_FAST_SPEED.get() : AccessoriesConfigs.SUSTENANCE_SLOW_SPEED.get();
     }
 
     public static boolean isFastMode(ItemStack stack) {

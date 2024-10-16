@@ -25,19 +25,25 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.DEEPSLATE_ONYX_ORE.get(),
                 ModBlocks.SOUL_STONE.get(),
                 ModBlocks.CONDENSED_SOUL.get(),
+                ModBlocks.ARTIFICIAL_ONYX_BLOCK.get(),
+                ModBlocks.ONYX_BLOCK.get(),
                 ModBlocks.SOUL_MANIPULATOR.get(),
                 ModBlocks.SOUL_SMELTERY.get(),
-                ModBlocks.SOUL_CANALIZER.get()
+                ModBlocks.SOUL_CANALIZER.get(),
+                ModBlocks.SOUL_SACRIFICER.get()
             );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
             .add(
                 ModBlocks.EYED_EBONY_LOG.get(),
+                ModBlocks.ARTIFICIAL_ONYX_BLOCK.get(),
+                ModBlocks.ONYX_BLOCK.get(),
                 ModBlocks.ONYX_ORE.get(),
                 ModBlocks.DEEPSLATE_ONYX_ORE.get(),
                 ModBlocks.SOUL_MANIPULATOR.get(),
                 ModBlocks.SOUL_SMELTERY.get(),
-                ModBlocks.SOUL_CANALIZER.get()
+                ModBlocks.SOUL_CANALIZER.get(),
+                ModBlocks.SOUL_SACRIFICER.get()
             );
 
         this.tag(BlockTags.LOGS)

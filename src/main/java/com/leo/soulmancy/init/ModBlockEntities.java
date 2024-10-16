@@ -3,6 +3,7 @@ package com.leo.soulmancy.init;
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.block.entity.SoulCanalizerBE;
 import com.leo.soulmancy.block.entity.SoulManipulatorBE;
+import com.leo.soulmancy.block.entity.SoulSacrificerBE;
 import com.leo.soulmancy.block.entity.SoulSmelteryBE;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -30,6 +31,13 @@ public class ModBlockEntities {
         () -> BlockEntityType.Builder.of(
             SoulCanalizerBE::new,
             ModBlocks.SOUL_CANALIZER.get()
+        ).build(null)
+    );
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SoulSacrificerBE>> SOUL_SACRIFICER = BLOCK_ENTITIES.register("soul_sacrificer",
+        () -> BlockEntityType.Builder.of(
+            SoulSacrificerBE::new,
+            ModBlocks.SOUL_SACRIFICER.get()
         ).build(null)
     );
 }

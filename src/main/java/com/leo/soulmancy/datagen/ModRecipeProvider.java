@@ -167,14 +167,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .save(recipeOutput, "soul_manipulator");
 
         SoulBurnRecipe.Builder.builder()
-            .withInput(new ItemStack(ModBlocks.SOUL_STONE.get(),1))
+            .withInput(new ItemStack(ModItems.CRYSTALLIZED_SOUL.get(),1))
             .withSoul(20)
-            .withDuration(100)
+            .withDuration(10)
             .save(
                 recipeOutput,
                 ResourceLocation.fromNamespaceAndPath(
                     Soulmancy.MODID,
-                    "soul_stone_burn"
+                    "crystallized_soul_recycle"
                 )
             );
 
@@ -192,8 +192,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         VesselStrengthenRecipe.Builder.builder()
             .withInput(new ItemStack(ModBlocks.CONDENSED_SOUL.get(),1))
-            .withSoul(25)
-            .withDuration(40)
+            .withSoul(15)
+            .withDuration(80)
             .save(
             recipeOutput,
             ResourceLocation.fromNamespaceAndPath(
@@ -281,6 +281,44 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .save(output, "ebony_trapdoor");
 
         oreRecipe(Ingredient.of(ModBlocks.ONYX_ORE.get(), ModBlocks.DEEPSLATE_ONYX_ORE.get()), ModItems.ONYX.get(), output, "onyx_ore");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ARTIFICIAL_ONYX_BLOCK.get())
+            .define('O', ModItems.ARTIFICIAL_ONYX.get())
+            .pattern("OOO")
+            .pattern("OOO")
+            .pattern("OOO")
+            .unlockedBy("hasItem", has(ModItems.ARTIFICIAL_ONYX.get()))
+            .save(output, "artificial_onyx_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ONYX_BLOCK.get())
+            .define('O', ModItems.ONYX.get())
+            .pattern("OOO")
+            .pattern("OOO")
+            .pattern("OOO")
+            .unlockedBy("hasItem", has(ModItems.ONYX.get()))
+            .save(output, "onyx_block");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CONDENSED_SOUL.get())
+            .define('O', ModItems.CRYSTALLIZED_SOUL.get())
+            .pattern("OO")
+            .pattern("OO")
+            .unlockedBy("hasItem", has(ModItems.CRYSTALLIZED_SOUL.get()))
+            .save(output, "condensed_soul_from_item");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ARTIFICIAL_ONYX.get(), 9)
+            .requires(ModBlocks.ARTIFICIAL_ONYX_BLOCK.get())
+            .unlockedBy("hasItem", has(ModBlocks.ARTIFICIAL_ONYX_BLOCK.get()))
+            .save(output, "artificial_onyx_from_block");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ONYX.get(), 9)
+            .requires(ModBlocks.ONYX_BLOCK.get())
+            .unlockedBy("hasItem", has(ModBlocks.ONYX_BLOCK.get()))
+            .save(output, "onyx_from_block");
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CRYSTALLIZED_SOUL.get(), 4)
+            .requires(ModBlocks.CONDENSED_SOUL.get())
+            .unlockedBy("hasItem", has(ModBlocks.CONDENSED_SOUL.get()))
+            .save(output, "crystallized_soul_from_block");
     }
 
     public void oreRecipe(Ingredient ores, ItemLike outputItem, RecipeOutput output, String id){

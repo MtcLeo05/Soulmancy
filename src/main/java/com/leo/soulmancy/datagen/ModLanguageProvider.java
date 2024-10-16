@@ -39,15 +39,19 @@ public class ModLanguageProvider extends LanguageProvider {
 
         this.add(ModBlocks.SOUL_STONE.get(), "Soul Stone");
         this.add(ModBlocks.CONDENSED_SOUL.get(), "Condensed Soul");
+        this.add(ModBlocks.ARTIFICIAL_ONYX_BLOCK.get(), "Artificial Onyx Block");
+        this.add(ModBlocks.ONYX_BLOCK.get(), "Onyx Block");
         this.add(ModBlocks.SOUL_MANIPULATOR.get(), "Soul Manipulator");
         this.add(ModBlocks.SOUL_SMELTERY.get(), "Soul Smeltery");
         this.add(ModBlocks.SOUL_CANALIZER.get(), "Soul Canalizer");
+        this.add(ModBlocks.SOUL_SACRIFICER.get(), "Soul Sacrificer");
 
         this.add(ModBlocks.ONYX_ORE.get(), "Onyx Ore");
         this.add(ModBlocks.DEEPSLATE_ONYX_ORE.get(), "Deepslate Onyx Ore");
 
         this.add(ModItems.ONYX.get(), "Onyx");
         this.add(ModItems.ARTIFICIAL_ONYX.get(), "Artificial Onyx");
+        this.add(ModItems.CRYSTALLIZED_SOUL.get(), "Crystallized Soul");
         this.add(ModItems.OCCULT_COMPASS.get(), "Occult Compass");
         this.add(ModItems.REVEALING_EYE.get(), "Eye Of Revealing");
         this.add(ModItems.SIGHT_LENS.get(), "Lens Of Sight");

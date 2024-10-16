@@ -1,6 +1,6 @@
 package com.leo.soulmancy.block.entity;
 
-import com.leo.soulmancy.config.ServerConfig;
+import com.leo.soulmancy.config.MachineryConfigs;
 import com.leo.soulmancy.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -14,7 +14,7 @@ public class SoulCanalizerBE extends BaseSoulInteractor{
 
     private boolean showRange = false;
 
-    private int x = 0, y = 0,z = 0;
+    private int x = 0, y = 0, z = 0;
 
     public SoulCanalizerBE(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.SOUL_CANALIZER.get(), pos, blockState);
@@ -22,18 +22,18 @@ public class SoulCanalizerBE extends BaseSoulInteractor{
 
     @Override
     protected int getRecipeDuration() {
-        return ServerConfig.soulCanalizerSpeed;
+        return MachineryConfigs.SOUL_CANALIZER_SPEED.get();
     }
 
     @Override
     public void dropContents() {}
 
     private int getHorizontalRange(){
-        return ServerConfig.soulCanalizerX;
+        return MachineryConfigs.SOUL_CANALIZER_X.get();
     }
 
     private int getVerticalRange(){
-        return ServerConfig.soulCanalizerY;
+        return MachineryConfigs.SOUL_CANALIZER_Y.get();
     }
 
     @Override
@@ -63,7 +63,7 @@ public class SoulCanalizerBE extends BaseSoulInteractor{
 
                     if(state.is(Blocks.AMETHYST_BLOCK)) {
                         double chance = level.random.nextDouble();
-                        if(ServerConfig.soulCanalizerConvertChance > 0 && chance < ServerConfig.soulCanalizerConvertChance) {
+                        if(MachineryConfigs.SOUL_CANALIZER_CONVERT_CHANCE.get() > 0 && chance < MachineryConfigs.SOUL_CANALIZER_CONVERT_CHANCE.get()) {
                             level.setBlockAndUpdate(toUse, Blocks.BUDDING_AMETHYST.defaultBlockState());
                             removeSoulToChunk(getSoulToConsume(state));
                         }
@@ -136,11 +136,11 @@ public class SoulCanalizerBE extends BaseSoulInteractor{
         boolean isCrop = block instanceof CropBlock || block instanceof CactusBlock || block instanceof SugarCaneBlock;
         boolean isAmethyst = block instanceof BuddingAmethystBlock;
 
-        if(state.is(Blocks.AMETHYST_BLOCK)) return ServerConfig.soulCanalizerConvertSoul;
+        if(state.is(Blocks.AMETHYST_BLOCK)) return MachineryConfigs.SOUL_CANALIZER_CONVERT_SOUL.get();
 
         if(!isCrop && !isAmethyst) return 0;
 
-        return isCrop? ServerConfig.soulCanalizerCropSoul: ServerConfig.soulCanalizerAmethystSoul;
+        return isCrop? MachineryConfigs.SOUL_CANALIZER_CONSUME.get().get(0): MachineryConfigs.SOUL_CANALIZER_CONSUME.get().get(1);
     }
 
     public int[] getRange() {
