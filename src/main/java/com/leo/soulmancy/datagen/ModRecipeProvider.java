@@ -4,13 +4,20 @@ import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.init.ModBlocks;
 import com.leo.soulmancy.init.ModItems;
 import com.leo.soulmancy.recipe.AnvilCrushRecipe;
+import com.leo.soulmancy.recipe.ItemRitualRecipe;
+import com.leo.soulmancy.recipe.MobRitualRecipe;
 import com.leo.soulmancy.recipe.manipulator.SoulBurnRecipe;
 import com.leo.soulmancy.recipe.manipulator.SoulTransformRecipe;
 import com.leo.soulmancy.recipe.manipulator.VesselStrengthenRecipe;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -201,6 +208,39 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 "condensed_soul_sacrifice"
             )
         );
+
+        MobRitualRecipe.Builder.builder()
+            .withInput(new ItemStack(Items.STONE, 3))
+            .addPedestalItem(new ItemStack(Items.STICK, 1))
+            .addPedestalItem(new ItemStack(Items.GLOW_ITEM_FRAME, 5))
+            .withSoul(150)
+            .withDuration(40)
+            .withEntityType(EntityType.COW)
+            .withCount(4)
+            .withTag(new CompoundTag())
+            .addEffects(MobEffects.GLOWING)
+            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "test"));
+
+        ItemRitualRecipe.Builder.builder()
+            .withInput(new ItemStack(Items.STICK, 4))
+            .addPedestalItem(Items.NETHER_STAR.getDefaultInstance())
+            .withSoul(25)
+            .withDuration(50)
+            .withOutput(Items.NETHERITE_INGOT.getDefaultInstance())
+            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "test2"));
+
+        NonNullList<ItemStack> itemStacks = NonNullList.withSize(16, Items.STICK.getDefaultInstance());
+
+        ItemRitualRecipe.Builder builder = ItemRitualRecipe.Builder.builder()
+            .withInput(new ItemStack(Items.STICK, 4));
+
+        itemStacks.forEach(builder::addPedestalItem);
+
+        builder
+            .withSoul(25)
+            .withDuration(50)
+            .withOutput(Items.NETHERITE_INGOT.getDefaultInstance())
+            .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "test3"));
     }
 
     public void registerVanillaRecipes(RecipeOutput output){

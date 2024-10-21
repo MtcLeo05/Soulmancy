@@ -1,19 +1,12 @@
 package com.leo.soulmancy.client.render.be;
 
 import com.leo.soulmancy.block.entity.SoulCanalizerBE;
-import com.leo.soulmancy.block.entity.SoulManipulatorBE;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class SoulCanalizerRenderer implements BlockEntityRenderer<SoulCanalizerBE> {
