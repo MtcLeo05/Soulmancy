@@ -5,8 +5,6 @@ import com.leo.soulmancy.init.ModBlocks;
 import com.leo.soulmancy.recipe.BaseRitualRecipe;
 import com.leo.soulmancy.recipe.ItemRitualRecipe;
 import com.leo.soulmancy.recipe.MobRitualRecipe;
-import com.leo.soulmancy.recipe.manipulator.VesselStrengthenRecipe;
-import com.leo.soulmancy.util.Utils;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -19,7 +17,6 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
-import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
@@ -108,7 +105,7 @@ public class ImbuementRitual implements IRecipeCategory<BaseRitualRecipe> {
                 16,
                 10,
                 new Vector3f(0, 0, 0),
-                (new Quaternionf()).rotationXYZ(0.43633232F, 125, 3.1415927F),
+                (new Quaternionf()).rotationXYZ(0.43633232F, 47, 3.1415927F),
                 null,
                 le
             );
@@ -118,8 +115,9 @@ public class ImbuementRitual implements IRecipeCategory<BaseRitualRecipe> {
             Minecraft.getInstance().font,
             Component.translatable(Soulmancy.MODID + ".jei.consumeSoul", recipe.getSoul()),
             0,
-            getHeight() - 10,
-            0xFF9f00fe
+            getHeight() - 5,
+            0xFF9f00fe,
+            false
         );
     }
 

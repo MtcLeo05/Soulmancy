@@ -24,7 +24,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
@@ -185,7 +184,7 @@ public class MobRitualRecipe extends BaseRitualRecipe {
         private MobRitualRecipe recipe;
 
         private Builder() {
-            this.recipe = new MobRitualRecipe(ItemStack.EMPTY, List.of(), 0, 0, EntityType.COW, 0, new CompoundTag(), List.of());
+            this.recipe = new MobRitualRecipe(ItemStack.EMPTY, List.of(), 0, 0, EntityType.COW, 1, new CompoundTag(), List.of());
         }
 
         public static Builder builder(){
