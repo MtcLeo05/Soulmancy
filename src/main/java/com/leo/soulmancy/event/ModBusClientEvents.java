@@ -5,6 +5,7 @@ import com.leo.soulmancy.client.gui.overlay.SoulMeterHUD;
 import com.leo.soulmancy.client.render.accessories.EyeCoverRenderer;
 import com.leo.soulmancy.client.render.accessories.HeartRenderer;
 import com.leo.soulmancy.client.render.accessories.PendantRenderer;
+import com.leo.soulmancy.client.render.be.PedestalRenderer;
 import com.leo.soulmancy.client.render.be.SoulCanalizerRenderer;
 import com.leo.soulmancy.client.render.be.SoulManipulatorRenderer;
 import com.leo.soulmancy.client.render.be.SoulSacrificerRenderer;
@@ -89,6 +90,16 @@ public class ModBusClientEvents {
         event.registerBlockEntityRenderer(
             ModBlockEntities.SOUL_SACRIFICER.get(),
             SoulSacrificerRenderer::new
+        );
+
+        event.registerBlockEntityRenderer(
+            ModBlockEntities.PEDESTAL.get(),
+            PedestalRenderer::new
+        );
+
+        event.registerBlockEntityRenderer(
+            ModBlockEntities.RITUAL_PEDESTAL.get(),
+            PedestalRenderer::new
         );
     }
 

@@ -130,7 +130,7 @@ public class Utils {
     }
 
     public static void renderSpinningItem(PoseStack poseStack,
-                                          float x, float y, float z, float scale,
+                                          float x, float y, float z, float scale, int speed,
                                           Level level,
                                           ItemStack item,
                                           int light,
@@ -141,7 +141,7 @@ public class Utils {
         poseStack.pushPose();
         poseStack.translate(x, y, z);
         poseStack.scale(scale, scale, scale);
-        poseStack.mulPose(Axis.YP.rotationDegrees(level.getGameTime() * 4));
+        poseStack.mulPose(Axis.YP.rotationDegrees(level.getGameTime() * speed));
 
         itemRenderer.renderStatic(
             item,

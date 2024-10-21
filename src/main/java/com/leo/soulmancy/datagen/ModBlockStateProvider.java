@@ -74,6 +74,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.SOUL_CANALIZER.get(), model(ModBlocks.SOUL_CANALIZER));
         simpleBlock(ModBlocks.SOUL_SACRIFICER.get(), model(ModBlocks.SOUL_SACRIFICER));
 
+        simpleBlock(ModBlocks.PEDESTAL.get(), model(ModBlocks.PEDESTAL));
+        simpleBlock(ModBlocks.RITUAL_PEDESTAL.get(), model(ModBlocks.RITUAL_PEDESTAL));
+
         doorBlock(ModBlocks.EBONY_DOOR.get(), modLoc("block/ebony_door_bottom"), modLoc("block/ebony_door_top"));
         trapdoorBlockWithRenderType(ModBlocks.EBONY_TRAPDOOR.get(), modLoc("block/ebony_trapdoor"), true, "cutout");
 

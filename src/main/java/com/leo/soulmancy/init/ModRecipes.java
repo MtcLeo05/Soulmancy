@@ -2,6 +2,8 @@ package com.leo.soulmancy.init;
 
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.recipe.AnvilCrushRecipe;
+import com.leo.soulmancy.recipe.ItemRitualRecipe;
+import com.leo.soulmancy.recipe.MobRitualRecipe;
 import com.leo.soulmancy.recipe.manipulator.SoulBurnRecipe;
 import com.leo.soulmancy.recipe.manipulator.SoulTransformRecipe;
 import com.leo.soulmancy.recipe.manipulator.VesselStrengthenRecipe;
@@ -56,5 +58,25 @@ public class ModRecipes {
     public static final Supplier<RecipeSerializer<VesselStrengthenRecipe>> VESSEL_STRENGTHEN_SERIALIZER = RECIPE_SERIALIZERS.register(
         "vessel_strengthen",
         VesselStrengthenRecipe.Serializer::new
+    );
+
+    public static final Supplier<RecipeType<MobRitualRecipe>> MOB_RITUAL_TYPE = RECIPE_TYPES.register(
+        "mob_ritual",
+        () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "mob_ritual"))
+    );
+
+    public static final Supplier<RecipeSerializer<MobRitualRecipe>> MOB_RITUAL_SERIALIZER = RECIPE_SERIALIZERS.register(
+        "mob_ritual",
+        MobRitualRecipe.Serializer::new
+    );
+
+    public static final Supplier<RecipeType<ItemRitualRecipe>> ITEM_RITUAL_TYPE = RECIPE_TYPES.register(
+        "item_ritual",
+        () -> RecipeType.simple(ResourceLocation.fromNamespaceAndPath(Soulmancy.MODID, "item_ritual"))
+    );
+
+    public static final Supplier<RecipeSerializer<ItemRitualRecipe>> ITEM_RITUAL_SERIALIZER = RECIPE_SERIALIZERS.register(
+        "item_ritual",
+        ItemRitualRecipe.Serializer::new
     );
 }
