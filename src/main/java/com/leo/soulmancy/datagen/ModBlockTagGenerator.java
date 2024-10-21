@@ -30,7 +30,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.SOUL_MANIPULATOR.get(),
                 ModBlocks.SOUL_SMELTERY.get(),
                 ModBlocks.SOUL_CANALIZER.get(),
-                ModBlocks.SOUL_SACRIFICER.get()
+                ModBlocks.SOUL_SACRIFICER.get(),
+                ModBlocks.PEDESTAL.get(),
+                ModBlocks.RITUAL_PEDESTAL.get()
             );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
@@ -43,7 +45,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 ModBlocks.SOUL_MANIPULATOR.get(),
                 ModBlocks.SOUL_SMELTERY.get(),
                 ModBlocks.SOUL_CANALIZER.get(),
-                ModBlocks.SOUL_SACRIFICER.get()
+                ModBlocks.SOUL_SACRIFICER.get(),
+                ModBlocks.PEDESTAL.get(),
+                ModBlocks.RITUAL_PEDESTAL.get()
             );
 
         this.tag(BlockTags.LOGS)

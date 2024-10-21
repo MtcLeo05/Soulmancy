@@ -1,10 +1,9 @@
 package com.leo.soulmancy.init;
 
 import com.leo.soulmancy.Soulmancy;
-import com.leo.soulmancy.block.entity.SoulCanalizerBE;
-import com.leo.soulmancy.block.entity.SoulManipulatorBE;
-import com.leo.soulmancy.block.entity.SoulSacrificerBE;
-import com.leo.soulmancy.block.entity.SoulSmelteryBE;
+import com.leo.soulmancy.block.PedestalBlock;
+import com.leo.soulmancy.block.RitualPedestalBlock;
+import com.leo.soulmancy.block.entity.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -38,6 +37,20 @@ public class ModBlockEntities {
         () -> BlockEntityType.Builder.of(
             SoulSacrificerBE::new,
             ModBlocks.SOUL_SACRIFICER.get()
+        ).build(null)
+    );
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PedestalBE>> PEDESTAL = BLOCK_ENTITIES.register("pedestal",
+        () -> BlockEntityType.Builder.of(
+            PedestalBE::new,
+            ModBlocks.PEDESTAL.get()
+        ).build(null)
+    );
+
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<RitualPedestalBE>> RITUAL_PEDESTAL = BLOCK_ENTITIES.register("ritual_pedestal",
+        () -> BlockEntityType.Builder.of(
+            RitualPedestalBE::new,
+            ModBlocks.RITUAL_PEDESTAL.get()
         ).build(null)
     );
 }

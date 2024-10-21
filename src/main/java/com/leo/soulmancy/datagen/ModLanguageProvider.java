@@ -45,6 +45,8 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(ModBlocks.SOUL_SMELTERY.get(), "Soul Smeltery");
         this.add(ModBlocks.SOUL_CANALIZER.get(), "Soul Canalizer");
         this.add(ModBlocks.SOUL_SACRIFICER.get(), "Soul Sacrificer");
+        this.add(ModBlocks.PEDESTAL.get(), "Pedestal");
+        this.add(ModBlocks.RITUAL_PEDESTAL.get(), "Ritual Pedestal");
 
         this.add(ModBlocks.ONYX_ORE.get(), "Onyx Ore");
         this.add(ModBlocks.DEEPSLATE_ONYX_ORE.get(), "Deepslate Onyx Ore");
@@ -98,6 +100,7 @@ public class ModLanguageProvider extends LanguageProvider {
         this.add(Soulmancy.MODID + ".jei.soulTransform", "Soul Transformation");
         this.add(Soulmancy.MODID + ".jei.soulBurn", "Soul Burning");
         this.add(Soulmancy.MODID + ".jei.vesselStrengthen", "Vessel Strengthen");
+        this.add(Soulmancy.MODID + ".jei.imbuementRitual", "Ritual of Imbuement");
 
         this.add(Soulmancy.MODID + ".jei.duration", "Recipe Duration: %d");
         this.add(Soulmancy.MODID + ".jei.consumeSoul", "Soul Consumed: %d");

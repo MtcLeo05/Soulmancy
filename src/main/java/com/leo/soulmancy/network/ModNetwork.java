@@ -3,6 +3,7 @@ package com.leo.soulmancy.network;
 import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.data.PlayerData;
 import com.leo.soulmancy.data.SoulData;
+import com.leo.soulmancy.network.packet.StopPedestalParticlesC2SPacket;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -25,6 +26,12 @@ public class ModNetwork {
             SoulData.TYPE,
             SoulData.STREAM_CODEC,
             SoulData::handleDataOnClient
+        );
+
+        registrar.playToServer(
+            StopPedestalParticlesC2SPacket.TYPE,
+            StopPedestalParticlesC2SPacket.STREAM_CODEC,
+            StopPedestalParticlesC2SPacket::handleDataOnServer
         );
     }
 

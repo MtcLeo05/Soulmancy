@@ -312,6 +312,26 @@ public class ModBlocks {
         )
     );
 
+    public static DeferredHolder<Block, PedestalBlock> PEDESTAL = registerBlock("pedestal",
+        () -> new PedestalBlock(
+            BlockBehaviour.Properties.of()
+                .mapColor(MapColor.DEEPSLATE)
+                .sound(SoundType.DEEPSLATE)
+                .strength(3f)
+                .requiresCorrectToolForDrops()
+        )
+    );
+
+    public static DeferredHolder<Block, RitualPedestalBlock> RITUAL_PEDESTAL = registerBlock("ritual_pedestal",
+        () -> new RitualPedestalBlock(
+            BlockBehaviour.Properties.of()
+                .mapColor(MapColor.DEEPSLATE)
+                .sound(SoundType.DEEPSLATE)
+                .strength(3f)
+                .requiresCorrectToolForDrops()
+        )
+    );
+
     public static <T extends Block> DeferredHolder<Block, T> registerBlock(String name, Supplier<T> block) {
         DeferredHolder<Block, T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

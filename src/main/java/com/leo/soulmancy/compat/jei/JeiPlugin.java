@@ -5,6 +5,9 @@ import com.leo.soulmancy.client.screen.SoulManipulatorScreen;
 import com.leo.soulmancy.init.ModBlocks;
 import com.leo.soulmancy.init.ModRecipes;
 import com.leo.soulmancy.recipe.AnvilCrushRecipe;
+import com.leo.soulmancy.recipe.BaseRitualRecipe;
+import com.leo.soulmancy.recipe.ItemRitualRecipe;
+import com.leo.soulmancy.recipe.MobRitualRecipe;
 import com.leo.soulmancy.recipe.manipulator.SoulTransformRecipe;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
@@ -36,7 +39,8 @@ public class JeiPlugin implements IModPlugin {
             new AnvilCrush(registration.getJeiHelpers().getGuiHelper()),
             new SoulTransform(registration.getJeiHelpers().getGuiHelper()),
             new SoulBurn(registration.getJeiHelpers().getGuiHelper()),
-            new VesselStrengthen(registration.getJeiHelpers().getGuiHelper())
+            new VesselStrengthen(registration.getJeiHelpers().getGuiHelper()),
+            new ImbuementRitual(registration.getJeiHelpers().getGuiHelper())
         );
     }
 
@@ -63,6 +67,17 @@ public class JeiPlugin implements IModPlugin {
             VesselStrengthen.RECIPE_TYPE,
             gatherRecipes(manager.getAllRecipesFor(ModRecipes.VESSEL_STRENGTHEN_TYPE.get()))
         );
+
+        List<MobRitualRecipe> mobRitualRecipes = gatherRecipes(manager.getAllRecipesFor(ModRecipes.MOB_RITUAL_TYPE.get()));
+        List<ItemRitualRecipe> itemRitualRecipes = gatherRecipes(manager.getAllRecipesFor(ModRecipes.ITEM_RITUAL_TYPE.get()));
+
+        List<BaseRitualRecipe> ritualRecipes = new ArrayList<>(mobRitualRecipes);
+        ritualRecipes.addAll(itemRitualRecipes);
+
+        registration.addRecipes(
+            ImbuementRitual.RECIPE_TYPE,
+            ritualRecipes
+        );
     }
 
     private <T extends Recipe<?>> List<T> gatherRecipes(List<RecipeHolder<T>> recipeHolders) {
@@ -87,6 +102,16 @@ public class JeiPlugin implements IModPlugin {
             SoulTransform.RECIPE_TYPE,
             SoulBurn.RECIPE_TYPE,
             VesselStrengthen.RECIPE_TYPE
+        );
+
+        registration.addRecipeCatalyst(
+            ModBlocks.RITUAL_PEDESTAL.get(),
+            ImbuementRitual.RECIPE_TYPE
+        );
+
+        registration.addRecipeCatalyst(
+            ModBlocks.PEDESTAL.get(),
+            ImbuementRitual.RECIPE_TYPE
         );
     }
 

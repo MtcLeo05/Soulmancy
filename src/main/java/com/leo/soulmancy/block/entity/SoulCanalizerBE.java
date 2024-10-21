@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.BlockState;
 public class SoulCanalizerBE extends BaseSoulInteractor{
 
     private boolean showRange = false;
-
     private int x = 0, y = 0, z = 0;
 
     public SoulCanalizerBE(BlockPos pos, BlockState blockState) {
