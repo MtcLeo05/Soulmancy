@@ -5,29 +5,19 @@ import com.leo.soulmancy.init.ModRecipes;
 import com.leo.soulmancy.recipe.BaseRitualRecipe;
 import com.leo.soulmancy.recipe.ItemRitualRecipe;
 import com.leo.soulmancy.recipe.MobRitualRecipe;
-import com.leo.soulmancy.recipe.ModRecipeInput;
-import com.leo.soulmancy.recipe.manipulator.BaseManipulatorRecipe;
-import com.leo.soulmancy.recipe.manipulator.SoulBurnRecipe;
-import com.leo.soulmancy.recipe.manipulator.SoulTransformRecipe;
-import com.leo.soulmancy.recipe.manipulator.VesselStrengthenRecipe;
 import com.leo.soulmancy.util.RitualStructure;
 import com.leo.soulmancy.util.Utils;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtUtils;
-import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -123,9 +113,16 @@ public class RitualPedestalBE extends PedestalBE{
         return cachedPedestals;
     }
 
+    int pedestalCD = 0, maxPedestalCD = 40;
+
     @Override
     public void tick(Level level) {
         if (level.isClientSide) return;
+
+        if(++pedestalCD >= maxPedestalCD) {
+            cachePedestals();
+        }
+
         updateRange();
 
         hasStructure = RitualStructure.hasStructure(getBlockPos(), getLevel());
@@ -150,7 +147,12 @@ public class RitualPedestalBE extends PedestalBE{
 
             ItemStack pedestalItem = be.getItem();
 
-            missingItems.removeIf(item -> Utils.isItemStackValid(pedestalItem, item));
+            for (ItemStack missingItem : missingItems) {
+                if(Utils.isItemStackValid(pedestalItem, missingItem)){
+                    missingItems.remove(missingItem);
+                    break;
+                }
+            }
         }
 
         if(!missingItems.isEmpty()) return;
@@ -225,12 +227,6 @@ public class RitualPedestalBE extends PedestalBE{
     private @Nullable BaseRitualRecipe getRecipe(){
         ItemStack input = itemHandler.getStackInSlot(0);
         return getRecipe(input);
-    }
-
-    @Override
-    public ItemStack interact(ItemStack playerItem) {
-        cachePedestals();
-        return super.interact(playerItem);
     }
 
     private void cachePedestals(){
