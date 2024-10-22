@@ -1,0 +1,25 @@
+{
+    "name": "Soul Sacrificer",
+    "icon": "soulmancy:soul_sacrificer",
+    "category": "soulmancy:soul_machinery",
+    "advancement": "soulmancy:soulmancy/soul_manipulator",
+    "turnin": "soulmancy:soulmancy/soul_sacrificer",
+    "sortnum": 1,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "A block that uses soul to kill mobs"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:soul_sacrificer"
+            },
+            "text": "R-click to toggle the range, Shift r-click to change modes"
+        },
+        {
+            "type": "patchouli:text",
+            "text": "The Soul Sacrificer has 2 modes:$(br)When the range has a darker color, it will kill mobs and drop their loot.$(br)When the range has a lighter color, it will kill mobs and either add their max health as soul in the chunk, or a fraction of their max health as vessel!"
+        }
+    ]
+}

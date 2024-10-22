@@ -1,0 +1,46 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:artificial_onyx"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.obtainArtificialOnyx.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.obtainArtificialOnyx.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/root",
+  "criteria": {
+    "obtain_onyx": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {}
+          }
+        ],
+        "items": [
+          {
+            "items": [
+              "soulmancy:artificial_onyx"
+            ],
+            "count": 1
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_onyx"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

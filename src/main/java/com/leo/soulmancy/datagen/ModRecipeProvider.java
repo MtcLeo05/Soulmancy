@@ -157,6 +157,35 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             .unlockedBy("hasItem", has(ModItems.ONYX.get()))
             .save(recipeOutput, "soul_manipulator");
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SOUL_SMELTERY.get())
+            .define('S', ModBlocks.SOUL_STONE.get())
+            .define('C', ModBlocks.CONDENSED_SOUL.get())
+            .pattern("SSS")
+            .pattern("SCS")
+            .pattern("SSS")
+            .unlockedBy("hasItem", has(ModBlocks.SOUL_STONE.get()))
+            .save(recipeOutput, "soul_smeltery");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SOUL_CANALIZER.get())
+            .define('S', ModBlocks.SOUL_STONE.get())
+            .define('C', ModItems.CRYSTALLIZED_SOUL.get())
+            .define('H', Blocks.HAY_BLOCK)
+            .pattern("SSS")
+            .pattern("CHC")
+            .pattern("SSS")
+            .unlockedBy("hasItem", has(ModBlocks.SOUL_STONE.get()))
+            .save(recipeOutput, "soul_canalizer");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SOUL_SACRIFICER.get())
+            .define('S', ModBlocks.SOUL_STONE.get())
+            .define('C', ModItems.CRYSTALLIZED_SOUL.get())
+            .define('s', Items.DIAMOND_SWORD)
+            .pattern("SSS")
+            .pattern("CsC")
+            .pattern("SSS")
+            .unlockedBy("hasItem", has(ModBlocks.SOUL_STONE.get()))
+            .save(recipeOutput, "soul_sacrificer");
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PEDESTAL.get())
             .define('S', ModBlocks.SOUL_STONE.get())
             .pattern(" S ")

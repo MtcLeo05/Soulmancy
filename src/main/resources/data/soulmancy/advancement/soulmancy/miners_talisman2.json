@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:miners_talisman2"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.minersTalisman2.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.minersTalisman2.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/miners_talisman1",
+  "criteria": {
+    "obtain_miners_talisman2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:miners_talisman2"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_miners_talisman2"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

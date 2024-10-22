@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:ritual_pedestal"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.ritualPedestal.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.ritualPedestal.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/pedestal",
+  "criteria": {
+    "obtain_ritual_pedestal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:ritual_pedestal"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_ritual_pedestal"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

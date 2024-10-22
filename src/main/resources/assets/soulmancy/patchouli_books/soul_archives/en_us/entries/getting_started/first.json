@@ -2,6 +2,8 @@
     "name": "Starting with Soulmancy",
     "icon": "soulmancy:artificial_onyx",
     "category": "soulmancy:getting_started",
+    "turnin": "soulmancy:soulmancy/obtain_artificial_onyx",
+    "sortnum": 0,
     "pages": [
         {
             "type": "patchouli:text",
@@ -38,7 +40,7 @@
         },
         {
             "type": "soulmancy:anvil_crushing",
-            "input": "minecraft:tinted_glass#4",
+            "input": "minecraft:tinted_glass#2",
             "output": "soulmancy:artificial_onyx",
             "text": "It seems like more amethyst than first thought is needed to increase its power. Unfortunately this is not its final form"
         }

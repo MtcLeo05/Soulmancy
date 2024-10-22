@@ -1,0 +1,19 @@
+{
+    "name": "Finding a PoI",
+    "icon": "soulmancy:occult_compass",
+    "category": "soulmancy:getting_started",
+    "advancement": "soulmancy:soulmancy/obtain_artificial_onyx",
+    "turnin": "soulmancy:soulmancy/visit_forest",
+    "sortnum": 1,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "It seems like there is a place where lots of souls gather.$(br)If only there was a way to locate it..."
+        },
+        {
+            "type": "patchouli:crafting",
+            "recipe": "minecraft:occult_compass",
+            "text": "The occult compass will point to the nearest place of interest for beginner soulmancers"
+        }
+    ]
+}

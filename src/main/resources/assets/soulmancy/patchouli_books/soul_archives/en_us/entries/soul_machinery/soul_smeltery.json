@@ -1,0 +1,21 @@
+{
+    "name": "Soul Smeltery",
+    "icon": "soulmancy:soul_smeltery",
+    "category": "soulmancy:soul_machinery",
+    "advancement": "soulmancy:soulmancy/soul_manipulator",
+    "turnin": "soulmancy:soulmancy/soul_smeltery",
+    "sortnum": 1,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "A furnace that uses the soul's hatred as fuel for smelting items."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:soul_smeltery"
+            },
+            "text": "Is slightly faster than a vanilla furnace!"
+        }
+    ]
+}

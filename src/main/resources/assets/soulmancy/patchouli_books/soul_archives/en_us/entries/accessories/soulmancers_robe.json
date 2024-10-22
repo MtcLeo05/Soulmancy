@@ -1,0 +1,17 @@
+{
+    "name": "Soulmancer's Robe",
+    "icon": "soulmancy:soulmancers_robe",
+    "category": "soulmancy:accessories",
+    "advancement": "soulmancy:soulmancy/ritual_pedestal",
+    "turnin": "soulmancy:soulmancy/soulmancers_robe",
+    "sortnum": 0,
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:soulmancers_robe"
+            },
+            "text": "This piece of armor is the dream of all soulmancers, and a \"final exam\" of some sorts...$(br)Its behaviour changes depending on whether it's used as armor or accessory."
+        }
+    ]
+}

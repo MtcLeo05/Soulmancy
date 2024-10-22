@@ -1,0 +1,27 @@
+{
+    "name": "Containing Soul",
+    "icon": "soulmancy:soul_capsule",
+    "category": "soulmancy:accessories",
+    "advancement": "soulmancy:soulmancy/soul_manipulator",
+    "sortnum": 0,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "When exploring, it's always good having some stored soul. These items allow just that!"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:soul_capsule"
+            },
+            "text": "A basic soul container, allows storing 25 soul."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:capsule_stack"
+            },
+            "text": "3 Soul Capsules in 1, can contain 125 soul"
+        }
+    ]
+}

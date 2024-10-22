@@ -1,0 +1,62 @@
+{
+    "name": "Ritual Basics",
+    "icon": "soulmancy:ritual_pedestal",
+    "category": "soulmancy:rituals",
+    "advancement": "soulmancy:soulmancy/basic_materials",
+    "turnin": "soulmancy:soulmancy/ritual_pedestal",
+    "sortnum": 0,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "Here you'll learn the basics for rituals"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:pedestal"
+            },
+            "text": "When by itself this block is basically a glorified item frame.$(br)It becomes useful when combined with a ritual pedestal"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:ritual_pedestal"
+            },
+            "text": "The core of an imbuement ritual.$(br)It needs a specific structure to work"
+        },
+        {
+            "type": "patchouli:multiblock",
+            "name": "Ritual Structure",
+            "multiblock": {
+                "mapping": {
+                    "l": "soulmancy:stripped_ebony_log",
+                    "p": "soulmancy:ebony_planks",
+                    "c": "soulmancy:condensed_soul",
+                    "o": "soulmancy:onyx_block",
+                    "s": "soulmancy:ebony_stairs",
+                    "0": "soulmancy:ritual_pedestal"
+                },
+                "pattern": [
+                    [
+                        "       ",
+                        "       ",
+                        "       ",
+                        "   0   ",
+                        "       ",
+                        "       ",
+                        "       "
+                    ],
+                    [
+                        " sssss ",
+                        "ssplpss",
+                        "spclcps",
+                        "sllolls",
+                        "spclcps",
+                        "ssplpss",
+                        " sssss "
+                    ]
+                ]
+            }
+        }
+    ]
+}

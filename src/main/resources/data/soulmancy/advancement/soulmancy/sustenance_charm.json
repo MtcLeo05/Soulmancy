@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:sustenance_charm"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.sustenanceCharm.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.sustenanceCharm.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/ritual_pedestal",
+  "criteria": {
+    "obtain_sustenance_charm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:sustenance_charm"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_sustenance_charm"
+    ]
+  ],
+  "sends_telemetry_event": false
+}
