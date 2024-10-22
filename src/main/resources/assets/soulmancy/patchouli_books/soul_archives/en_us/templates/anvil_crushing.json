@@ -1,0 +1,37 @@
+{
+    "components": [
+        {
+            "type": "patchouli:header",
+            "text": "Anvil Crushing",
+            "x": 55,
+            "y": 0
+        },
+        {
+            "type": "patchouli:item",
+            "framed": true,
+            "item": "#input",
+            "x": 10,
+            "y": 40
+        },
+        {
+            "type": "patchouli:item",
+            "framed": true,
+            "item": "minecraft:anvil",
+            "x": 50,
+            "y": 15
+        },
+        {
+            "type": "patchouli:item",
+            "framed": true,
+            "item": "#output",
+            "x": 90,
+            "y": 40
+        },
+        {
+            "type": "patchouli:text",
+            "text": "#text",
+            "x": 0,
+            "y": 60
+        }
+    ]
+}

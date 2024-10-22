@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:sight_lens"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.sightLens.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.sightLens.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/ritual_pedestal",
+  "criteria": {
+    "obtain_sight_lens": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:sight_lens"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_sight_lens"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

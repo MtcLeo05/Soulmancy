@@ -1,0 +1,35 @@
+{
+    "name": "Soul Canalizer",
+    "icon": "soulmancy:soul_canalizer",
+    "category": "soulmancy:soul_machinery",
+    "advancement": "soulmancy:soulmancy/soul_manipulator",
+    "turnin": "soulmancy:soulmancy/soul_canalizer",
+    "sortnum": 1,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "A block that uses soul to speed up crop growth"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:soul_canalizer"
+            },
+            "text": "Shift r-click to toggle the range!"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "minecraft:amethyst_block"
+            },
+            "text": "If it's not disabled in configs, it can also convert amethyst blocks to budding amethyst!"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "minecraft:budding_amethyst"
+            },
+            "text": "If it's not disabled in configs, it can also speed up budding amethyst growth!"
+        }
+    ]
+}

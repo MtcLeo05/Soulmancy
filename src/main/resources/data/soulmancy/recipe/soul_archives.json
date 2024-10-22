@@ -1,0 +1,25 @@
+{
+    "neoforge:conditions": [
+        {
+            "type": "neoforge:mod_loaded",
+            "modid": "patchouli"
+        }
+    ],
+    "type": "minecraft:crafting_shapeless",
+    "category": "misc",
+    "ingredients": [
+        {
+            "item": "minecraft:amethyst_shard"
+        },
+        {
+            "item": "minecraft:book"
+        }
+    ],
+    "result": {
+        "count": 1,
+        "id": "patchouli:guide_book",
+        "components": {
+            "patchouli:book": "soulmancy:soul_archives"
+        }
+    }
+}

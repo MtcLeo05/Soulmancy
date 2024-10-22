@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:soul_manipulator"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.soulManipulator.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.soulManipulator.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/basic_materials",
+  "criteria": {
+    "obtain_soul_manipulator": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:soul_manipulator"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_soul_manipulator"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

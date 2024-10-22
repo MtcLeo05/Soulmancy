@@ -1,0 +1,17 @@
+{
+    "name": "Soul Scythe",
+    "icon": "soulmancy:soul_scythe",
+    "category": "soulmancy:accessories",
+    "advancement": "soulmancy:soulmancy/ritual_pedestal",
+    "turnin": "soulmancy:soulmancy/soul_scythe",
+    "sortnum": 0,
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:soul_scythe"
+            },
+            "text": "A weapon that extracts soul when killing a mob.$(br) It seems like players have stronger souls, and give vessel when killed.$(br)Can be enchanted!"
+        }
+    ]
+}

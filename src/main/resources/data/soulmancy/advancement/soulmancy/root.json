@@ -1,0 +1,44 @@
+{
+    "display": {
+        "icon": {
+            "id": "soulmancy:eyed_ebony_log",
+            "count": 1
+        },
+        "title": {
+            "translate": "advancements.soulmancy.root.title"
+        },
+        "description": {
+            "translate": "advancements.soulmancy.root.description"
+        },
+        "background": "soulmancy:textures/block/ebony_planks.png",
+        "frame": "task",
+        "show_toast": false,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "tick": {
+            "trigger": "minecraft:tick",
+            "conditions": {
+                "player": [
+                    {
+                        "condition": "minecraft:entity_properties",
+                        "entity": "this",
+                        "predicate": {}
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "tick"
+        ]
+    ],
+    "rewards": {
+        "loot": [
+            "soulmancy:misc/give_book"
+        ]
+    },
+    "sends_telemetry_event": false
+}

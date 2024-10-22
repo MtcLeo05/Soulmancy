@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:occult_compass"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.visitForest.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.visitForest.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/obtain_artificial_onyx",
+  "criteria": {
+    "visit_forest": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:player",
+              "location": {
+                "biomes": "soulmancy:ebony_forest"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "visit_forest"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

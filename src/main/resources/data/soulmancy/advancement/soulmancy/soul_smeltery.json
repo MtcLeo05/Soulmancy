@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:soul_smeltery"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.soulSmeltery.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.soulSmeltery.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/soul_manipulator",
+  "criteria": {
+    "obtain_soul_smeltery": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:soul_smeltery"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_soul_smeltery"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

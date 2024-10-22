@@ -1,0 +1,42 @@
+{
+    "name": "The Ebony Forest",
+    "icon": "soulmancy:eyed_ebony_log",
+    "category": "soulmancy:getting_started",
+    "advancement": "soulmancy:soulmancy/visit_forest",
+    "turnin": "soulmancy:soulmancy/basic_materials",
+    "sortnum": 2,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "The ebony forest has a lot of useful materials.$(br)It also has a much higher $(#9f00fe)soul $(#3b005e)concentration$() than any other biome.$(br2)Unfortunately it also has a $(#545454)thick fog$(), with no way to remove it."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:onyx"
+            },
+            "text": "A natural onyx, much more powerful than an artificial one"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:eyed_ebony_log"
+            },
+            "text": "A log that gained some peculiar properties given the soul concentration, maybe you're able to use its eye?"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:ebony_log"
+            },
+            "text": "A wood type found all over the forest, has a black tint, can be made in all wood variants"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:soul_stone"
+            },
+            "text": "Stone that has been exposed to the soul, and has absorbed it.$(br2)If only there was an way to artificially infuse it..."
+        }
+    ]
+}

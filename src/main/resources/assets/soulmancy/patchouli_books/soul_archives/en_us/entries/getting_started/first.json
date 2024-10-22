@@ -1,0 +1,48 @@
+{
+    "name": "Starting with Soulmancy",
+    "icon": "soulmancy:artificial_onyx",
+    "category": "soulmancy:getting_started",
+    "turnin": "soulmancy:soulmancy/obtain_artificial_onyx",
+    "sortnum": 0,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "Before you can start practicing soulmancy, you're gonna need a couple of things"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "minecraft:amethyst_shard"
+            },
+            "text": "Amethysts are a good soul conductor, however they can be enhanced. If only you could figure out how"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "minecraft:glass"
+            },
+            "text": "Ahh glass, the perfect see through block. It'd be a shame if someone were to make it non see-through in some way"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "minecraft:anvil"
+            },
+            "text": "Who doesn't like anvil. Slap this bad boy on the air and let it crush some items... Oops, spoiler"
+        },
+        {
+            "type": "patchouli:text",
+            "text": "Do not turn this page if you want a solution on how to continue"
+        },
+        {
+            "type": "patchouli:empty",
+            "text": "Do not turn this page if you want a solution on how to continue"
+        },
+        {
+            "type": "soulmancy:anvil_crushing",
+            "input": "minecraft:tinted_glass#2",
+            "output": "soulmancy:artificial_onyx",
+            "text": "It seems like more amethyst than first thought is needed to increase its power. Unfortunately this is not its final form"
+        }
+    ]
+}

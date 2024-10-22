@@ -1,0 +1,21 @@
+{
+    "name": "Soul Manipulator",
+    "icon": "soulmancy:soul_manipulator",
+    "category": "soulmancy:soul_machinery",
+    "advancement": "soulmancy:soulmancy/basic_materials",
+    "turnin": "soulmancy:soulmancy/soul_manipulator",
+    "sortnum": 0,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "This is the first machine you'll make (probably).$(br2)All machines work without needing pipes or anything of the sort. They interact directly with the chunk they are in!"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:soul_manipulator"
+            },
+            "text": "It allows to burn items to produce soul, infuse items with soul and increase a chunk's vessel."
+        }
+    ]
+}

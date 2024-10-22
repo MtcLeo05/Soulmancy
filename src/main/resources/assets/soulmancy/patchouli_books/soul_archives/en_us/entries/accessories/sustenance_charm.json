@@ -1,0 +1,17 @@
+{
+    "name": "Charm of Sustenance",
+    "icon": "soulmancy:sustenance_charm",
+    "category": "soulmancy:accessories",
+    "advancement": "soulmancy:soulmancy/ritual_pedestal",
+    "turnin": "soulmancy:soulmancy/sustenance_charm",
+    "sortnum": 0,
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:sustenance_charm"
+            },
+            "text": "This charm replenishes your hunger by consuming souls. Yucky... but useful...$(br)Can this be considered cannibalism? Technically speaking you can't know if the soul was a human's..."
+        }
+    ]
+}

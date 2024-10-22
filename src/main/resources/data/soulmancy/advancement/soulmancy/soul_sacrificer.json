@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:soul_sacrificer"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.soulSacrificer.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.soulSacrificer.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/soul_manipulator",
+  "criteria": {
+    "obtain_soul_sacrificer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:soul_sacrificer"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_soul_sacrificer"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

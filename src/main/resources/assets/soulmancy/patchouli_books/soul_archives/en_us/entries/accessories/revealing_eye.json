@@ -1,0 +1,17 @@
+{
+    "name": "Eye of Revealing",
+    "icon": "soulmancy:revealing_eye",
+    "category": "soulmancy:accessories",
+    "advancement": "soulmancy:soulmancy/soul_manipulator",
+    "turnin": "soulmancy:soulmancy/revealing_eye",
+    "sortnum": 0,
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:revealing_eye"
+            },
+            "text": "It's obvious that not every place in the world is perfect for practising soulmancy, this item will allow seeing which places gather the most souls!$(br)Although it has have some imperfections that hinder the vision..."
+        }
+    ]
+}

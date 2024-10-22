@@ -1,0 +1,17 @@
+{
+    "name": "Sight Lens",
+    "icon": "soulmancy:sight_lens",
+    "category": "soulmancy:accessories",
+    "advancement": "soulmancy:soulmancy/ritual_pedestal",
+    "turnin": "soulmancy:soulmancy/sight_lens",
+    "sortnum": 0,
+    "pages": [
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:sight_lens"
+            },
+            "text": "This perfected lens removes all of the Eye of Revealing imperfections, allowing a much clearer image."
+        }
+    ]
+}

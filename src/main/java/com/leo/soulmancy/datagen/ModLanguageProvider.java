@@ -112,5 +112,62 @@ public class ModLanguageProvider extends LanguageProvider {
 
         this.add("enchantment." + Soulmancy.MODID + ".soul_reaping", "Soul Reaping");
         this.add("enchantment." + Soulmancy.MODID + ".soul_reaping.desc", "Converts killed entities' max HP to soul usable in recipes");
+
+        this.add("advancements." + Soulmancy.MODID + ".root.title", "Welcome to Soulmancy");
+        this.add("advancements." + Soulmancy.MODID + ".root.description", "Hope you're in for a ride");
+
+        this.add("advancements." + Soulmancy.MODID + ".obtainArtificialOnyx.title", "Artificial Onyx");
+        this.add("advancements." + Soulmancy.MODID + ".obtainArtificialOnyx.description", "Obtain an artificial onyx");
+
+        this.add("advancements." + Soulmancy.MODID + ".visitForest.title", "Ebony Forest");
+        this.add("advancements." + Soulmancy.MODID + ".visitForest.description", "The place where soul gathers");
+
+        this.add("advancements." + Soulmancy.MODID + ".basicMaterials.title", "Basic Materials");
+        this.add("advancements." + Soulmancy.MODID + ".basicMaterials.description", "A collection of materials you'll need");
+
+        this.add("advancements." + Soulmancy.MODID + ".soulManipulator.title", "Soul Manipulator");
+        this.add("advancements." + Soulmancy.MODID + ".soulManipulator.description", "The base for a successful soulmancer");
+        this.add("advancements." + Soulmancy.MODID + ".pedestal.title", "Pedestal");
+        this.add("advancements." + Soulmancy.MODID + ".pedestal.description", "Glorified item display");
+
+        this.add("advancements." + Soulmancy.MODID + ".soulSmeltery.title", "Soul Smeltery");
+        this.add("advancements." + Soulmancy.MODID + ".soulSmeltery.description", "H.O.T.T.O.G.O.");
+        this.add("advancements." + Soulmancy.MODID + ".soulCanalizer.title", "Soul Canalizer");
+        this.add("advancements." + Soulmancy.MODID + ".soulCanalizer.description", "Every mods needs a crop grower");
+        this.add("advancements." + Soulmancy.MODID + ".soulSacrificer.title", "Soul Sacrificer");
+        this.add("advancements." + Soulmancy.MODID + ".soulSacrificer.description", "Killing mobs with style");
+        this.add("advancements." + Soulmancy.MODID + ".revealingEye.title", "Eye of Revealing");
+        this.add("advancements." + Soulmancy.MODID + ".revealingEye.description", "Totally not a discount thaumometer");
+
+        this.add("advancements." + Soulmancy.MODID + ".ritualPedestal.title", "Ritual Pedestal");
+        this.add("advancements." + Soulmancy.MODID + ".ritualPedestal.description", "Something something big craftings something something");
+
+        this.add("advancements." + Soulmancy.MODID + ".sightLens.title", "Lens of Sight");
+        this.add("advancements." + Soulmancy.MODID + ".sightLens.description", "Now 100% less ourple");
+        this.add("advancements." + Soulmancy.MODID + ".sustenanceCharm.title", "Charm of Sustenance");
+        this.add("advancements." + Soulmancy.MODID + ".sustenanceCharm.description", "Eating? What's that?");
+        this.add("advancements." + Soulmancy.MODID + ".soulScythe.title", "Soul Scythe");
+        this.add("advancements." + Soulmancy.MODID + ".soulScythe.description", "Who doesn't like scythes???");
+        this.add("advancements." + Soulmancy.MODID + ".soulmancersRobe.title", "Soulmancer's Robe");
+        this.add("advancements." + Soulmancy.MODID + ".soulmancersRobe.description", "Damn you got drip");
+
+        this.add("advancements." + Soulmancy.MODID + ".minersTalisman1.title", "Miner's Talisman 1");
+        this.add("advancements." + Soulmancy.MODID + ".minersTalisman1.description", "A beacon's worst nightmare");
+        this.add("advancements." + Soulmancy.MODID + ".minersTalisman2.title", "Miner's Talisman 2");
+        this.add("advancements." + Soulmancy.MODID + ".minersTalisman2.description", "Who needs efficiency?");
+        this.add("advancements." + Soulmancy.MODID + ".minersTalisman3.title", "Miner's Talisman 3");
+        this.add("advancements." + Soulmancy.MODID + ".minersTalisman3.description", "Why...?");
+
+        this.add("advancements." + Soulmancy.MODID + ".fightersTalisman1.title", "Fighter's Talisman 1");
+        this.add("advancements." + Soulmancy.MODID + ".fightersTalisman1.description", "Offense is the best defence");
+        this.add("advancements." + Soulmancy.MODID + ".fightersTalisman2.title", "Fighter's Talisman 2");
+        this.add("advancements." + Soulmancy.MODID + ".fightersTalisman2.description", "See them rain their blood down!");
+        this.add("advancements." + Soulmancy.MODID + ".fightersTalisman3.title", "Fighter's Talisman 3");
+        this.add("advancements." + Soulmancy.MODID + ".fightersTalisman3.description", "OP? Nah");
+
+        this.add("advancements." + Soulmancy.MODID + ".runnersTalisman1.title", "Runner's Talisman 1");
+        this.add("advancements." + Soulmancy.MODID + ".runnersTalisman1.description", "It's not cowardice...");
+        this.add("advancements." + Soulmancy.MODID + ".runnersTalisman2.title", "Runner's Talisman 2");
+        this.add("advancements." + Soulmancy.MODID + ".runnersTalisman2.description", "...it's a strategical retreat!");
     }
 }

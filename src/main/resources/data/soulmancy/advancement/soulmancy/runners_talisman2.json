@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:runners_talisman2"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.runnersTalisman2.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.runnersTalisman2.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/runners_talisman1",
+  "criteria": {
+    "obtain_runners_talisman2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:runners_talisman2"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_runners_talisman2"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

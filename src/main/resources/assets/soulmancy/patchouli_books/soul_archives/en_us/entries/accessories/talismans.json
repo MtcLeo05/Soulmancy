@@ -1,0 +1,35 @@
+{
+    "name": "Talismans",
+    "icon": "soulmancy:runners_talisman2",
+    "category": "soulmancy:accessories",
+    "advancement": "soulmancy:soulmancy/ritual_pedestal",
+    "turnin": "soulmancy:soulmancy/runners_talisman2",
+    "sortnum": 0,
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "Talismans are able to give the wearer various effects based on the type and level."
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:miners_talisman1"
+            },
+            "text": "A basic talisman, mainly used by miners to speed up their mining capabilities. Can be upgraded a total of 2 times"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:fighters_talisman1"
+            },
+            "text": "A talisman used by fighters to increase their fighting capabilities. Can be upgraded a total of 2 times"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "item": {
+                "item": "soulmancy:runners_talisman1"
+            },
+            "text": "A talisman that gives a big vigor boost, giving speed and regeneration to the wearer. Can be upgraded 1 time"
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:onyx"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.basicMaterials.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.basicMaterials.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/visit_forest",
+  "criteria": {
+    "obtain_onyx": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:onyx"
+          }
+        ]
+      }
+    },
+    "obtain_soul_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:soul_stone"
+          }
+        ]
+      }
+    },
+    "obtain_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:eyed_ebony_log"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_onyx",
+      "obtain_soul_stone",
+      "obtain_log"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

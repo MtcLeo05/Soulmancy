@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:pedestal"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.pedestal.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.pedestal.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/basic_materials",
+  "criteria": {
+    "obtain_pedestal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:pedestal"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_pedestal"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

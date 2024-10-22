@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "id": "soulmancy:soulmancers_robe"
+    },
+    "title": {
+      "translate": "advancements.soulmancy.soulmancersRobe.title"
+    },
+    "description": {
+      "translate": "advancements.soulmancy.soulmancersRobe.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "soulmancy:soulmancy/ritual_pedestal",
+  "criteria": {
+    "obtain_soulmancers_robe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "soulmancy:soulmancers_robe"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_soulmancers_robe"
+    ]
+  ],
+  "sends_telemetry_event": false
+}
