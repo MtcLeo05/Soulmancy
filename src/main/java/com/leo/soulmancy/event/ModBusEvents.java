@@ -6,6 +6,7 @@ import com.leo.soulmancy.compat.accessories.SoulmancersRobeAccessory;
 import com.leo.soulmancy.compat.accessories.SustenanceCharmAccessory;
 import com.leo.soulmancy.compat.accessories.TalismanAccessory;
 import com.leo.soulmancy.init.ModBlockEntities;
+import com.leo.soulmancy.worldgen.biome.ModTerrablender;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -38,4 +39,8 @@ public class ModBusEvents {
         TalismanAccessory.init();
     }
 
+    @SubscribeEvent
+    public static void onCommonSetup(FMLCommonSetupEvent event) {
+        ModTerrablender.registerBiomes();
+    }
 }

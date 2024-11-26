@@ -33,7 +33,6 @@ public class Soulmancy {
         ModMenuTypes.MENUS.register(modEventBus);
 
         ModTrees.TRUNK_PLACER_TYPES.register(modEventBus);
-        ModTerrablender.registerBiomes();
 
         ModArmorMaterials.ARMOR_MATERIALS.register(modEventBus);
 

@@ -4,6 +4,7 @@ import com.leo.soulmancy.Soulmancy;
 import com.leo.soulmancy.data.SoulData;
 import com.leo.soulmancy.datagen.ModEnchantments;
 import com.leo.soulmancy.util.Utils;
+import com.leo.soulmancy.worldgen.biome.ModTerrablender;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -13,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -59,5 +61,4 @@ public class GameBusEvents {
         int soulsToGive = (int) (killedEntity.getMaxHealth() * 5 * level / 100);
         Utils.addSoulToChunk(possiblePlayer.blockPosition(), soulsToGive, sPlayer.serverLevel());
     }
-
 }
